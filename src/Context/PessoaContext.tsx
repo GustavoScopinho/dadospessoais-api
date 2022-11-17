@@ -40,9 +40,23 @@ export const PessoaProvider = ({ children }: IChildren) => {
     }
   }
 
+  const deletarUsuario = async (idUsuario: number) => {
+    try {
+      await api.delete(`/pessoa/${idUsuario}`)
+      toast.success('Usuário deletado com sucesso!', toastConfig)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <PessoaContext.Provider
-      value={{ criarDadosPessoa, dadosPessoa, buscarDadosPessoa }}
+      value={{
+        criarDadosPessoa,
+        dadosPessoa,
+        buscarDadosPessoa,
+        deletarUsuario
+      }}
     >
       {children}
     </PessoaContext.Provider>

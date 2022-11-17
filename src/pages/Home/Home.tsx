@@ -12,6 +12,8 @@ export const Home = () => {
 
   const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
 
+  const { deletarUsuario } = useContext(PessoaContext)
+
   useEffect(() => {
     buscarDadosPessoa()
   }, [])
@@ -44,6 +46,7 @@ export const Home = () => {
                 {dadosPessoa?.map((pessoa: any) => {
                   return (
                     <tr>
+                      <th>{pessoa.idPessoa}</th>
                       <th>{pessoa.nome}</th>
                       <th>{pessoa.dataNascimento}</th>
                       <th>{pessoa.cpf}</th>
@@ -57,7 +60,9 @@ export const Home = () => {
                       <button>
                         {' '}
                         <i>
-                          <RiDeleteBin6Fill />
+                          <RiDeleteBin6Fill
+                            onClick={() => deletarUsuario(pessoa.idPessoa)}
+                          />
                         </i>{' '}
                       </button>
                     </tr>
