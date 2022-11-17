@@ -15,14 +15,13 @@ export const UsuarioProvider = ({ children }: IChildren) => {
 
   const CriarNovoUsuario = async (novoUsuario: IUsuario) => {
     try {
-      // nProgress.start()
       await api.post('/auth/create', novoUsuario)
       toast.success('Usuário criado com sucesso', toastConfig)
+      navigate('/Home')
     } catch (error) {
       console.log(error)
       toast.error('Erro, tente novamente!', toastConfig)
     } finally {
-      // nProgress.done()
     }
   }
 

@@ -31,4 +31,6 @@ export interface IPessoas {
   email: string
 }
 
-export interface IPessoaContext {}
+export interface IPessoaContext {
+  criarDadosPessoa: (people: IPessoas) => Promise<void>
+}

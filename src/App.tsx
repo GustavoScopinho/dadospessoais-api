@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'nprogress/nprogress.css'
 import { Home } from './pages/Home/Home'
 import { RotaPrivada } from './components/RotaPrivada'
+import { PessoaProvider } from '../src/Context/PessoaContext'
+import { CadastroDePessoas } from './pages/CadastroDePessoas/CadastroDePessoas'
 
 function App() {
   return (
@@ -15,13 +17,16 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <UsuarioProvider>
-          <Routes>
-            <Route path="/Cadastro" element={<CriarUsuario />} />
-            <Route path="/" element={<Login />} />
-            <Route element={<RotaPrivada />}>
-              <Route path="/Home" element={<Home />} />
-            </Route>
-          </Routes>
+          <PessoaProvider>
+            <Routes>
+              <Route path="/Cadastro" element={<CriarUsuario />} />
+              <Route path="/" element={<Login />} />
+              <Route element={<RotaPrivada />}>
+                <Route path="/Home" element={<Home />} />
+                <Route path="/people/create" element={<CadastroDePessoas />} />
+              </Route>
+            </Routes>
+          </PessoaProvider>
         </UsuarioProvider>
       </BrowserRouter>
     </>
