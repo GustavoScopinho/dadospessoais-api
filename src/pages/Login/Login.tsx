@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { IUsuario } from '../../utilidade/interface'
+import { UsuarioContext } from '../../Context/UsuarioContext'
+import { Navigate } from 'react-router-dom'
 
 export const Login = () => {
-  const { register, handleSubmit } = useForm<Usuario>()
+  const { register, handleSubmit } = useForm<IUsuario>()
+  const { fazerLogin, token } = useContext(UsuarioContext)
 
+  if (token) {
+    return <Navigate to="/dashboard" />
+  }
   return (
     <>
       <h1>Tela de Login</h1>
-      <form onSubmit={handleSubmit(data =>)}>
-        <input type="text" name="login" id="login" />
-        <input type="password" name="senha" id="senha" />
-        <input type="submit" value="Criar novo usuário" />
+      <form onSubmit={handleSubmit(data => fazerLogin(data))}>
+        <input type="text" id="login" {...register('login')} />
+        <input type="password" id="senha" {...register('senha')} />
+        <input type="submit" value="Entrar" />
       </form>
     </>
   )
