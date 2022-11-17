@@ -29,19 +29,21 @@ export const PessoaProvider = ({ children }: IChildren) => {
 
   const [dadosPessoa, setDadosPessoa] = useState<IPessoas>()
 
-  useEffect(() => {
-    const buscarDadosPessoa = async () => {
-      try {
-        await api.get('/pessoa').then(response => setDadosPessoa(response.data))
-      } catch (error) {
-        console.log(error)
-      }
+  const buscarDadosPessoa = async () => {
+    try {
+      api.defaults.headers.common['Authorization'] = token
+      await api
+        .get('/pessoa')
+        .then(response => setDadosPessoa(response.data.content))
+    } catch (error) {
+      console.log(error)
     }
-    buscarDadosPessoa()
-  }, [dadosPessoa])
+  }
 
   return (
-    <PessoaContext.Provider value={{ criarDadosPessoa, dadosPessoa }}>
+    <PessoaContext.Provider
+      value={{ criarDadosPessoa, dadosPessoa, buscarDadosPessoa }}
+    >
       {children}
     </PessoaContext.Provider>
   )
