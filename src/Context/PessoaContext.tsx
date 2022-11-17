@@ -34,12 +34,11 @@ export const PessoaProvider = ({ children }: IChildren) => {
       await api.get('/pessoa').then(response => setDadosPessoa(response.data))
     } catch (error) {
       console.log(error)
-      toast.error('Algo deu errado, tente novamente', toastConfig)
     }
   }
 
   return (
-    <PessoaContext.Provider value={{ criarDadosPessoa }}>
+    <PessoaContext.Provider value={{ criarDadosPessoa, dadosPessoa }}>
       {children}
     </PessoaContext.Provider>
   )

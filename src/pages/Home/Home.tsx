@@ -6,9 +6,15 @@ import { Link } from 'react-router-dom'
 
 export const Home = () => {
   const { fazerLogout, token } = useContext(UsuarioContext)
+
+  // const { dadosPessoa } = useContext<any>(UsuarioContext)
+
   return (
     <>
       <ContainerHome>
+        {/* {dadosPessoa.map((pessoa: any) => {
+          return pessoa.nome
+        })} */}
         <div className="Container-Logout">
           <button onClick={fazerLogout}>Logout</button>
         </div>
