@@ -35,7 +35,7 @@ export const ContainerHome = styled.div`
   }
   .button-cadastro {
     background-color: blueviolet;
-    border-radius: 5px;
+
     text-decoration: none;
     padding: 5px 10px;
     text-align: center;
