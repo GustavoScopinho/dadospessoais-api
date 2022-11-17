@@ -55,7 +55,7 @@ export const ContainerLogin = styled.div`
     }
   }
   a {
-    color: purple;
+    color: #fff;
     text-decoration: none;
   }
 `
