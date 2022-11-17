@@ -33,5 +33,5 @@ export interface IPessoas {
 
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
-  dadosPessoa: IPessoas[]
+  dadosPessoa: IPessoas | undefined
 }

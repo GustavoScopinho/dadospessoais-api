@@ -6,9 +6,17 @@ import { Navigate } from 'react-router-dom'
 import { ContainerLogin } from './Login.style'
 import backgroundImage from '../../assets/imagem-fundo.jpg'
 import { Link } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { userFormSchema } from '../../utilidade/schemas'
 
 export const Login = () => {
-  const { register, handleSubmit } = useForm<IUsuario>()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<IUsuario>({
+    resolver: yupResolver(userFormSchema)
+  })
   const { fazerLogin, token } = useContext(UsuarioContext)
 
   if (token) {
@@ -29,12 +37,14 @@ export const Login = () => {
               placeholder="Username"
               {...register('login')}
             />
+            {errors && <p>{errors.login?.message}</p>}
             <input
               type="password"
               id="senha"
               placeholder="Senha"
               {...register('senha')}
             />
+            {errors && <p>{errors.senha?.message}</p>}
             <input className="buttonLogin" type="submit" value="Entrar" />
           </form>
           <Link to="/Cadastro">Clique aqui para cadastrar!</Link>

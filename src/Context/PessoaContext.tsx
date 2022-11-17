@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../utilidade/api'
 import {
@@ -16,8 +16,6 @@ export const PessoaProvider = ({ children }: IChildren) => {
   const { token } = useContext(UsuarioContext)
   const navigate = useNavigate()
 
-  const [dadosPessoa, setDadosPessoa] = useState<IPessoas[]>([])
-
   const criarDadosPessoa = async (people: IPessoas) => {
     try {
       await api.post('/pessoa', people)
@@ -29,13 +27,18 @@ export const PessoaProvider = ({ children }: IChildren) => {
     }
   }
 
-  const buscarDadosPessoa = async (people: IPessoas) => {
-    try {
-      await api.get('/pessoa').then(response => setDadosPessoa(response.data))
-    } catch (error) {
-      console.log(error)
+  const [dadosPessoa, setDadosPessoa] = useState<IPessoas>()
+
+  useEffect(() => {
+    const buscarDadosPessoa = async () => {
+      try {
+        await api.get('/pessoa').then(response => setDadosPessoa(response.data))
+      } catch (error) {
+        console.log(error)
+      }
     }
-  }
+    buscarDadosPessoa()
+  }, [dadosPessoa])
 
   return (
     <PessoaContext.Provider value={{ criarDadosPessoa, dadosPessoa }}>

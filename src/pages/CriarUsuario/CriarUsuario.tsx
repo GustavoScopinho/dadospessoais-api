@@ -4,9 +4,17 @@ import { UsuarioContext } from '../../Context/UsuarioContext'
 import { IUsuario } from '../../utilidade/interface'
 import backgroundImage from '../../assets/imagem-fundo.jpg'
 import { ContainerRegister } from './CriarUsuario.style'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { userFormSchema } from '../../utilidade/schemas'
 
 export const CriarUsuario = () => {
-  const { register, handleSubmit } = useForm<IUsuario>()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<IUsuario>({
+    resolver: yupResolver(userFormSchema)
+  })
   const { CriarNovoUsuario } = useContext(UsuarioContext)
 
   useEffect(() => {
@@ -23,7 +31,9 @@ export const CriarUsuario = () => {
           <h1>Cadastro</h1>
           <form onSubmit={handleSubmit(data => CriarNovoUsuario(data))}>
             <input type="text" id="login" {...register('login')} />
+            {errors && <p>{errors.login?.message}</p>}
             <input type="password" id="senha" {...register('senha')} />
+            {errors && <p>{errors.senha?.message}</p>}
             <input
               className="buttonLogin"
               type="submit"
