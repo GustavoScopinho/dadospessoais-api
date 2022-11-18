@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { UsuarioContext } from '../../Context/UsuarioContext'
 import { useContext } from 'react'
 import { ContainerHome } from './Home.style'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
@@ -10,8 +10,8 @@ import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 
 export const Home = () => {
+  const navigate = useNavigate();
   const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
-
   const { deletarUsuario } = useContext(PessoaContext)
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export const Home = () => {
                         <button className="buttonTabela">
                           {' '}
                           <i>
-                            <FiEdit />
+                            <FiEdit  onClick={() => {navigate("/people/edit", { state: pessoa })}}/>
                           </i>
                         </button>
                         <button className="buttonTabela">

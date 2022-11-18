@@ -37,4 +37,6 @@ export interface IPessoaContext {
   dadosPessoa: IPessoas | undefined
   buscarDadosPessoa: (people: any) => Promise<void>
   deletarUsuario: (idUsuario: number) => Promise<void>
+  editaUsuario: (idUsuario: IPessoas) => Promise<void>
 }
+

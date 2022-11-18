@@ -10,6 +10,7 @@ import { Home } from './pages/Home/Home'
 import { RotaPrivada } from './components/RotaPrivada'
 import { PessoaProvider } from '../src/Context/PessoaContext'
 import { CadastroDePessoas } from './pages/CadastroDePessoas/CadastroDePessoas'
+import { EditaPessoa } from './pages/EditaPessoa'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route element={<RotaPrivada />}>
                 <Route path="/Home" element={<Home />} />
                 <Route path="/people/create" element={<CadastroDePessoas />} />
+                <Route path="/people/edit" element={<EditaPessoa />} />
               </Route>
             </Routes>
           </PessoaProvider>

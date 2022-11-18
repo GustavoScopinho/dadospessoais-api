@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../utilidade/api'
+import  nProgress  from 'nprogress';
+
 import {
   IPessoaContext,
   toastConfig,
@@ -49,13 +51,29 @@ export const PessoaProvider = ({ children }: IChildren) => {
     }
   }
 
+  const editaUsuario = async(idUsuario: IPessoas ) => {
+    try {
+      nProgress.start();
+      await api.put(`/pessoa/${`/${idUsuario.idPessoa}`}`, idUsuario);
+      toast.success("Usuário editado com sucesso!", toastConfig);
+      navigate("/Home");
+    } catch (error) {
+      toast.error("Houve algum error, tente novamente!", toastConfig);
+      console.error(error);
+    } finally {
+      nProgress.done();
+    }
+  }
+
   return (
     <PessoaContext.Provider
       value={{
         criarDadosPessoa,
         dadosPessoa,
         buscarDadosPessoa,
-        deletarUsuario
+        deletarUsuario,
+        editaUsuario,
+ 
       }}
     >
       {children}
