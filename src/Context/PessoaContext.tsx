@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { api } from '../utilidade/api'
-import  nProgress  from 'nprogress';
+import nProgress from 'nprogress'
 
 import {
   IPessoaContext,
@@ -28,7 +28,6 @@ export const PessoaProvider = ({ children }: IChildren) => {
       toast.error('Algo deu errado, tente novamente', toastConfig)
     }
   }
-
   const [dadosPessoa, setDadosPessoa] = useState<IPessoas>()
 
   const buscarDadosPessoa = async () => {
@@ -51,17 +50,17 @@ export const PessoaProvider = ({ children }: IChildren) => {
     }
   }
 
-  const editaUsuario = async(idUsuario: IPessoas ) => {
+  const editaUsuario = async (idUsuario: IPessoas) => {
     try {
-      nProgress.start();
-      await api.put(`/pessoa/${`/${idUsuario.idPessoa}`}`, idUsuario);
-      toast.success("Usuário editado com sucesso!", toastConfig);
-      navigate("/Home");
+      nProgress.start()
+      await api.put(`/pessoa/${`/${idUsuario.idPessoa}`}`, idUsuario)
+      toast.success('Usuário editado com sucesso!', toastConfig)
+      navigate('/Home')
     } catch (error) {
-      toast.error("Houve algum error, tente novamente!", toastConfig);
-      console.error(error);
+      toast.error('Houve algum error, tente novamente!', toastConfig)
+      console.error(error)
     } finally {
-      nProgress.done();
+      nProgress.done()
     }
   }
 
@@ -72,8 +71,7 @@ export const PessoaProvider = ({ children }: IChildren) => {
         dadosPessoa,
         buscarDadosPessoa,
         deletarUsuario,
-        editaUsuario,
- 
+        editaUsuario
       }}
     >
       {children}
