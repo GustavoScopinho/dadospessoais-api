@@ -34,6 +34,7 @@ export const ContainerHome = styled.div`
       flex-direction: column;
       margin-bottom: 50px;
       align-items: center;
+      box-shadow: 1px 1px 5px 1px #4b7bc4;
 
       i {
       }
@@ -43,6 +44,7 @@ export const ContainerHome = styled.div`
       color: #64c0ff;
       background: #fff;
       border: 1px solid #64c0ff;
+
       :hover {
         scale: 1.1;
         transform: 2s;
