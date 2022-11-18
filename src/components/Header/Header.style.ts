@@ -21,7 +21,10 @@ export const ContainerMenu = styled.div`
 
   h3 {
     color: #fff;
-    /* color: #64c0ff; */
+
+    :hover {
+      color: #64c0ff;
+    }
   }
 
   button {
@@ -37,5 +40,10 @@ export const ContainerMenu = styled.div`
       scale: 1.02;
       transform: 2s;
     }
+  }
+  a {
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
   }
 `
