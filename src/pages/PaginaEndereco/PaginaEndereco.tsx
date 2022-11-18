@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
 import { UsuarioContext } from '../../Context/UsuarioContext'
 import { useContext } from 'react'
-import { ContainerHome } from './Home.style'
+import { ContainerGeral, ContainerHome } from './Endereco.style'
 import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
 import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
+import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
 
-export const Home = () => {
+export const PaginaEndereco = () => {
   const navigate = useNavigate()
   const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
   const { deletarUsuario } = useContext(PessoaContext)
@@ -24,18 +25,18 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
-      <ContainerHome>
-        <div className="ContainerMenor">
-          <h2>Lista de pessoas</h2>
-          <div className="ContainerTabela">
-            <div>
+      <ContainerGeral>
+        <Header />
+        <ContainerHome>
+          <div className="ContainerMenor">
+            <h2>Lista de Endereço</h2>
+            <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
-                <Link className="button-cadastro" to="/people/create">
-                  {' '}
-                  Cadastrar Pessoa
-                </Link>
+                <div>
+                  <h3>Endereços usuários</h3>
+                </div>
               </div>
+              <div className="classOverflow"></div>
               <table>
                 <tr>
                   <th>ID</th>
@@ -48,11 +49,21 @@ export const Home = () => {
                 {dadosPessoa?.map((pessoa: IPessoas) => {
                   return (
                     <tr>
-                      <td>{pessoa.idPessoa}</td>
-                      <td>{pessoa.nome}</td>
-                      <td>{pessoa.dataNascimento}</td>
-                      <td>{pessoa.cpf}</td>
-                      <td>{pessoa.email}</td>
+                      <td>
+                        <p>{pessoa.idPessoa}</p>
+                      </td>
+                      <td>
+                        <p>{pessoa.nome}</p>
+                      </td>
+                      <td>
+                        <p>{pessoa.dataNascimento}</p>
+                      </td>
+                      <td>
+                        <p>{pessoa.cpf}</p>
+                      </td>
+                      <td>
+                        <p>{pessoa.email}</p>
+                      </td>
                       <td className="container-button">
                         <button className="buttonTabela">
                           {' '}
@@ -64,6 +75,7 @@ export const Home = () => {
                             />
                           </i>
                         </button>
+
                         <button className="buttonTabela">
                           {' '}
                           <i>
@@ -79,8 +91,8 @@ export const Home = () => {
               </table>
             </div>
           </div>
-        </div>
-      </ContainerHome>
+        </ContainerHome>
+      </ContainerGeral>
     </>
   )
 }

@@ -1,12 +1,23 @@
 import styled from 'styled-components'
 
 export const ContainerHeader = styled.div`
-  width: 100%;
+  width: 20%;
   background-color: #000;
-  margin: 0 auto;
+
   display: flex;
-  justify-content: center;
+
   border-bottom: 1px solid #fff;
+  align-items: center;
+  flex-direction: column;
+
+  .ContainerLogout {
+    width: 100%;
+
+    .iconLogout {
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
 `
 
 export const ContainerMenu = styled.div`
@@ -14,17 +25,19 @@ export const ContainerMenu = styled.div`
   height: 90px;
   background-color: #ccc;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  color: blueviolet;
+  margin: 50px 0px;
+
   background: #000;
 
-  h3 {
-    color: #fff;
+  img {
+    width: 100px;
+  }
 
-    :hover {
-      color: #64c0ff;
-    }
+  .containerIcon {
+    width: 100%;
+    margin-top: 50px;
   }
 
   button {
@@ -43,7 +56,19 @@ export const ContainerMenu = styled.div`
   }
   a {
     text-decoration: none;
-    color: red;
+    color: #fff;
+
     cursor: pointer;
+  }
+
+  p {
+    color: #c4c4cc;
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 10px;
+    }
   }
 `
