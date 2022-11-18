@@ -8,6 +8,7 @@ import backgroundImage from '../../assets/imagem-fundo.jpg'
 import { Link } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { userFormSchema } from '../../utilidade/schemas'
+import logoQuadrado from '../../assets/logo-quadrado.svg'
 
 export const Login = () => {
   const {
@@ -24,10 +25,10 @@ export const Login = () => {
   }
   return (
     <>
-      <ContainerLogin
-        className="overlay"
-        style={{ background: `url(${backgroundImage})` }}
-      >
+      <ContainerLogin>
+        <div className="ContainerLogo">
+          <img src={logoQuadrado}></img>
+        </div>
         <div className="ContainerMenor">
           <h1>Tela de Login</h1>
           <form onSubmit={handleSubmit(data => fazerLogin(data))}>
