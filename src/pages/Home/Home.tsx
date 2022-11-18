@@ -10,13 +10,13 @@ import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 
 export const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
   const { deletarUsuario } = useContext(PessoaContext)
 
   useEffect(() => {
     buscarDadosPessoa()
-  }, [])
+  }, [buscarDadosPessoa()])
 
   useEffect(() => {
     console.log(dadosPessoa)
@@ -57,7 +57,11 @@ export const Home = () => {
                         <button className="buttonTabela">
                           {' '}
                           <i>
-                            <FiEdit  onClick={() => {navigate("/people/edit", { state: pessoa })}}/>
+                            <FiEdit
+                              onClick={() => {
+                                navigate('/people/edit', { state: pessoa })
+                              }}
+                            />
                           </i>
                         </button>
                         <button className="buttonTabela">
