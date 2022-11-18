@@ -1,6 +1,7 @@
 # API-Pessoas 📘
 
-<img align="center" width="600px" src="https://i.imgur.com/qzcWdVT.png" >
+<img align="center" width="600px" src="https://user-images.githubusercontent.com/102439841/202723275-d507e5e1-d96c-4ef4-ab59-bea039dc478d.gif" >
+
 
 ### Projeto consumindo api de usuários, contendo página de login, cadastro, logout e lista de usuários, podendo adicionar uma nova pessoa, editar ou até mesmo deletar.
 Consiste em uma API com GET,POST,PUT e DELETE.
