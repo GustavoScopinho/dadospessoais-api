@@ -12,7 +12,6 @@ export const CadastroDePessoas = () => {
 
   return (
     <>
-      <Header />
       <ContainerCadastro>
         <div className="ContainerMenor">
           <h1>Cadastro de pessoas</h1>
