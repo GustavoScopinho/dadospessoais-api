@@ -29,6 +29,7 @@ export interface IPessoas {
   dataNascimento: string
   cpf: string
   email: string
+  idPessoa: number
 }
 
 export interface IPessoaContext {

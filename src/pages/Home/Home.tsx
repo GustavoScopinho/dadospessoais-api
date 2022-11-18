@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
+import { IPessoas } from '../../utilidade/interface'
+import { Header } from '../../components/Header/Header'
 
 export const Home = () => {
-  const { fazerLogout, token } = useContext(UsuarioContext)
-
   const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
 
   const { deletarUsuario } = useContext(PessoaContext)
@@ -24,10 +24,8 @@ export const Home = () => {
 
   return (
     <>
+      <Header />
       <ContainerHome>
-        <div className="Container-Logout">
-          <button onClick={fazerLogout}>Logout</button>
-        </div>
         <div className="ContainerMenor">
           <div>
             <h1>Lista de pessoas</h1>
@@ -38,33 +36,37 @@ export const Home = () => {
               </Link>
               <table>
                 <tr>
-                  <th>Nome</th>
-                  <th>DataNascimento</th>
-                  <th>Cpf</th>
-                  <th>Email</th>
+                  <th>ID</th>
+                  <th>NOME</th>
+                  <th>DATA DE NASCIMENTO</th>
+                  <th>CPF</th>
+                  <th>EMAIL</th>
+                  <th>↓</th>
                 </tr>
-                {dadosPessoa?.map((pessoa: any) => {
+                {dadosPessoa?.map((pessoa: IPessoas) => {
                   return (
                     <tr>
-                      <th>{pessoa.idPessoa}</th>
-                      <th>{pessoa.nome}</th>
-                      <th>{pessoa.dataNascimento}</th>
-                      <th>{pessoa.cpf}</th>
-                      <th>{pessoa.email}</th>
-                      <button>
-                        {' '}
-                        <i>
-                          <FiEdit />
-                        </i>
-                      </button>{' '}
-                      <button>
-                        {' '}
-                        <i>
-                          <RiDeleteBin6Fill
-                            onClick={() => deletarUsuario(pessoa.idPessoa)}
-                          />
-                        </i>{' '}
-                      </button>
+                      <td>{pessoa.idPessoa}</td>
+                      <td>{pessoa.nome}</td>
+                      <td>{pessoa.dataNascimento}</td>
+                      <td>{pessoa.cpf}</td>
+                      <td>{pessoa.email}</td>
+                      <td className="container-button">
+                        <button className="buttonTabela">
+                          {' '}
+                          <i>
+                            <FiEdit />
+                          </i>
+                        </button>
+                        <button className="buttonTabela">
+                          {' '}
+                          <i>
+                            <RiDeleteBin6Fill
+                              onClick={() => deletarUsuario(pessoa.idPessoa)}
+                            />
+                          </i>{' '}
+                        </button>
+                      </td>
                     </tr>
                   )
                 })}
