@@ -16,7 +16,7 @@ export const Home = () => {
 
   useEffect(() => {
     buscarDadosPessoa()
-  }, [])
+  }, [buscarDadosPessoa()])
 
   useEffect(() => {
     console.log(dadosPessoa)
