@@ -6,6 +6,7 @@ import backgroundImage from '../../assets/imagem-fundo.jpg'
 import { ContainerRegister } from './CriarUsuario.style'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { userFormSchema } from '../../utilidade/schemas'
+import logoQuadrado from '../../assets/logo-quadrado.svg'
 
 export const CriarUsuario = () => {
   const {
@@ -23,16 +24,26 @@ export const CriarUsuario = () => {
 
   return (
     <>
-      <ContainerRegister
-        className="overlay"
-        style={{ background: `url(${backgroundImage})` }}
-      >
+      <ContainerRegister>
+        <div className="ContainerLogo">
+          <img src={logoQuadrado}></img>
+        </div>
         <div className="ContainerMenor">
           <h1>Cadastro</h1>
           <form onSubmit={handleSubmit(data => CriarNovoUsuario(data))}>
-            <input type="text" id="login" {...register('login')} />
+            <input
+              type="text"
+              id="login"
+              placeholder="Login"
+              {...register('login')}
+            />
             {errors && <p>{errors.login?.message}</p>}
-            <input type="password" id="senha" {...register('senha')} />
+            <input
+              type="password"
+              id="senha"
+              placeholder="Senha"
+              {...register('senha')}
+            />
             {errors && <p>{errors.senha?.message}</p>}
             <input
               className="buttonLogin"

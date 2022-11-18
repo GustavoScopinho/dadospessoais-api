@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { Header } from '../../components/Header/Header'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { IPessoas } from '../../utilidade/interface'
 import { ContainerCadastro } from './CadastrarPessoas.style'
@@ -11,6 +12,7 @@ export const CadastroDePessoas = () => {
 
   return (
     <>
+      <Header />
       <ContainerCadastro>
         <div className="ContainerMenor">
           <h1>Cadastro de pessoas</h1>
