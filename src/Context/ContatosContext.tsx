@@ -23,14 +23,30 @@ export const ContatosProvider = ({ children }: IChildren) => {
       api.defaults.headers.common['Authorization'] = token
       await api.post(`/contato/${idPessoa}`, contato)
       toast.success('Usuário cadastrado com sucesso', toastConfig)
+      navigate('/PaginaContato')
     } catch (error) {
       toast.error('Algo deu errado, tente novamente', toastConfig)
       console.error(console.log)
     }
   }
 
+  const [dadosContatos, setDadosContatos] = useState<IContato>()
+
+  const buscarContatos = async () => {
+    try {
+      api.defaults.headers.common['Authorization'] = token
+      await api
+        .get('/contato/')
+        .then(response => setDadosContatos(response.data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <ContatosContext.Provider value={{ criarContatos }}>
+    <ContatosContext.Provider
+      value={{ criarContatos, buscarContatos, dadosContatos }}
+    >
       {children}
     </ContatosContext.Provider>
   )

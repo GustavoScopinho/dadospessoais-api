@@ -6,22 +6,23 @@ import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
-import { IPessoas } from '../../utilidade/interface'
+import { IContato, IContatoContext, IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
+import { ContatosContext } from '../../Context/ContatosContext'
 
 export const PaginaContato = () => {
-  const navigate = useNavigate()
-  // const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
+  const { dadosContatos, buscarContatos } =
+    useContext<IContatoContext>(ContatosContext)
   // const { deletarUsuario } = useContext(PessoaContext)
 
-  // useEffect(() => {
-  //   buscarDadosPessoa()
-  // }, [buscarDadosPessoa()])
+  useEffect(() => {
+    buscarContatos()
+  }, [])
 
   // useEffect(() => {
-  //   console.log(dadosPessoa)
-  // }, [dadosPessoa])
+  //   console.log(dadosContatos)
+  // }, [dadosContatos])
 
   return (
     <>
@@ -38,24 +39,24 @@ export const PaginaContato = () => {
               </div>
               <div className="classOverflow"></div>
               <table>
-                <tr>
+                <thead>
                   <th>TIPO DE CONTATO</th>
                   <th>TELEFONE</th>
                   <th>DESCRIÇÃO</th>
 
                   <th>↓</th>
-                </tr>
-                {/* {dadosPessoa?.map((pessoa: IPessoas) => {
+                </thead>
+                {dadosContatos?.map((contato: any) => {
                   return (
-                    <tr>
+                    <tbody key={contato.idContato}>
                       <td>
-                        <p>{pessoa.idPessoa}</p>
+                        <p>{contato.tipoContato}</p>
                       </td>
                       <td>
-                        <p>{pessoa.nome}</p>
+                        <p>{contato.telefone}</p>
                       </td>
                       <td>
-                        <p>{pessoa.dataNascimento}</p>
+                        <p>{contato.descricao}</p>
                       </td>
 
                       <td className="container-button">
@@ -63,9 +64,9 @@ export const PaginaContato = () => {
                           {' '}
                           <i>
                             <FiEdit
-                              onClick={() => {
-                                navigate('/people/edit', { state: pessoa })
-                              }}
+                            // onClick={() => {
+                            //   navigate('/people/edit', { state: pessoa })
+                            // }}
                             />
                           </i>
                         </button>
@@ -74,14 +75,14 @@ export const PaginaContato = () => {
                           {' '}
                           <i>
                             <RiDeleteBin6Fill
-                              onClick={() => deletarUsuario(pessoa.idPessoa)}
+                            // onClick={() => deletarUsuario(pessoa.idPessoa)}
                             />
                           </i>{' '}
                         </button>
                       </td>
-                    </tr>
+                    </tbody>
                   )
-                })} */}
+                })}
               </table>
             </div>
           </div>

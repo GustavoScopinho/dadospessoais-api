@@ -42,6 +42,8 @@ export interface IPessoaContext {
 
 export interface IContatoContext {
   criarContatos: (contato: IContato, id: number) => Promise<void>
+  buscarContatos: () => Promise<void>
+  dadosContatos: IContato | undefined | any
 }
 
 export interface IContato {
@@ -49,4 +51,5 @@ export interface IContato {
   telefone: string
   descricao: string
   idPessoa: number
+  idContato: number
 }

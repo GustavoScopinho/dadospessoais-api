@@ -19,10 +19,6 @@ export const Home = () => {
     buscarDadosPessoa()
   }, [])
 
-  useEffect(() => {
-    console.log(dadosPessoa)
-  }, [dadosPessoa])
-
   return (
     <>
       <ContainerGeral>
@@ -44,17 +40,17 @@ export const Home = () => {
               </div>
               <div className="classOverflow"></div>
               <table>
-                <tr>
+                <thead>
                   <th>ID</th>
                   <th>NOME</th>
                   <th>DATA DE NASCIMENTO</th>
                   <th>CPF</th>
                   <th>EMAIL</th>
                   <th>↓</th>
-                </tr>
+                </thead>
                 {dadosPessoa?.map((pessoa: IPessoas) => {
                   return (
-                    <tr>
+                    <tbody key={pessoa.idPessoa}>
                       <td>
                         <p>{pessoa.idPessoa}</p>
                       </td>
@@ -107,7 +103,7 @@ export const Home = () => {
                           </i>{' '}
                         </button>
                       </td>
-                    </tr>
+                    </tbody>
                   )
                 })}
               </table>
