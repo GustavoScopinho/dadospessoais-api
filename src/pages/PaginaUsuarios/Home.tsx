@@ -17,7 +17,7 @@ export const Home = () => {
 
   useEffect(() => {
     buscarDadosPessoa()
-  }, [buscarDadosPessoa()])
+  }, [])
 
   useEffect(() => {
     console.log(dadosPessoa)
@@ -84,7 +84,11 @@ export const Home = () => {
                         <button className="buttonTabela">
                           {' '}
                           <i>
-                            <FaAddressBook />
+                            <FaAddressBook
+                              onClick={() => {
+                                navigate('/contato/create', { state: pessoa })
+                              }}
+                            />
                           </i>
                         </button>
                         <button className="buttonTabela">

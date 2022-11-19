@@ -13,6 +13,8 @@ import { CadastroDePessoas } from './pages/CadastroDePessoas/CadastroDePessoas'
 import { EditaPessoa } from './pages/EditaPessoa'
 import { PaginaEndereco } from './pages/PaginaEndereco/PaginaEndereco'
 import { PaginaContato } from './pages/PaginaContato/PaginaContato'
+import { ContatosProvider } from './Context/ContatosContext'
+import { CadastroContatos } from './components/CadastroContatos/CadastroContatos'
 
 function App() {
   return (
@@ -21,17 +23,26 @@ function App() {
         <ToastContainer />
         <UsuarioProvider>
           <PessoaProvider>
-            <Routes>
-              <Route path="/Cadastro" element={<CriarUsuario />} />
-              <Route path="/" element={<Login />} />
-              <Route element={<RotaPrivada />}>
-                <Route path="/Home" element={<Home />} />
-                <Route path="/PaginaEndereco" element={<PaginaEndereco />} />
-                <Route path="/PaginaContato" element={<PaginaContato />} />
-                <Route path="/people/create" element={<CadastroDePessoas />} />
-                <Route path="/people/edit" element={<EditaPessoa />} />
-              </Route>
-            </Routes>
+            <ContatosProvider>
+              <Routes>
+                <Route path="/Cadastro" element={<CriarUsuario />} />
+                <Route path="/" element={<Login />} />
+                <Route element={<RotaPrivada />}>
+                  <Route path="/Home" element={<Home />} />
+                  <Route path="/PaginaEndereco" element={<PaginaEndereco />} />
+                  <Route path="/PaginaContato" element={<PaginaContato />} />
+                  <Route
+                    path="/contato/create"
+                    element={<CadastroContatos />}
+                  />
+                  <Route
+                    path="/people/create"
+                    element={<CadastroDePessoas />}
+                  />
+                  <Route path="/people/edit" element={<EditaPessoa />} />
+                </Route>
+              </Routes>
+            </ContatosProvider>
           </PessoaProvider>
         </UsuarioProvider>
       </BrowserRouter>

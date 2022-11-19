@@ -40,3 +40,13 @@ export interface IPessoaContext {
   editaUsuario: (idUsuario: IPessoas) => Promise<void>
 }
 
+export interface IContatoContext {
+  criarContatos: (contato: IContato, id: number) => Promise<void>
+}
+
+export interface IContato {
+  tipoContato: string
+  telefone: string
+  descricao: string
+  idPessoa: number
+}

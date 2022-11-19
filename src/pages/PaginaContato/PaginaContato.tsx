@@ -12,16 +12,16 @@ import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
 
 export const PaginaContato = () => {
   const navigate = useNavigate()
-  const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
-  const { deletarUsuario } = useContext(PessoaContext)
+  // const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
+  // const { deletarUsuario } = useContext(PessoaContext)
 
-  useEffect(() => {
-    buscarDadosPessoa()
-  }, [buscarDadosPessoa()])
+  // useEffect(() => {
+  //   buscarDadosPessoa()
+  // }, [buscarDadosPessoa()])
 
-  useEffect(() => {
-    console.log(dadosPessoa)
-  }, [dadosPessoa])
+  // useEffect(() => {
+  //   console.log(dadosPessoa)
+  // }, [dadosPessoa])
 
   return (
     <>
@@ -39,14 +39,13 @@ export const PaginaContato = () => {
               <div className="classOverflow"></div>
               <table>
                 <tr>
-                  <th>ID</th>
-                  <th>NOME</th>
-                  <th>DATA DE NASCIMENTO</th>
-                  <th>CPF</th>
-                  <th>EMAIL</th>
+                  <th>TIPO DE CONTATO</th>
+                  <th>TELEFONE</th>
+                  <th>DESCRIÇÃO</th>
+
                   <th>↓</th>
                 </tr>
-                {dadosPessoa?.map((pessoa: IPessoas) => {
+                {/* {dadosPessoa?.map((pessoa: IPessoas) => {
                   return (
                     <tr>
                       <td>
@@ -58,12 +57,7 @@ export const PaginaContato = () => {
                       <td>
                         <p>{pessoa.dataNascimento}</p>
                       </td>
-                      <td>
-                        <p>{pessoa.cpf}</p>
-                      </td>
-                      <td>
-                        <p>{pessoa.email}</p>
-                      </td>
+
                       <td className="container-button">
                         <button className="buttonTabela">
                           {' '}
@@ -87,7 +81,7 @@ export const PaginaContato = () => {
                       </td>
                     </tr>
                   )
-                })}
+                })} */}
               </table>
             </div>
           </div>
