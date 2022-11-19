@@ -15,6 +15,7 @@ import { PaginaEndereco } from './pages/PaginaEndereco/PaginaEndereco'
 import { PaginaContato } from './pages/PaginaContato/PaginaContato'
 import { ContatosProvider } from './Context/ContatosContext'
 import { CadastroContatos } from './components/CadastroContatos/CadastroContatos'
+import { FormEditContatos } from './components/EditarContatos/FormEditContatos'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                     path="/contato/create"
                     element={<CadastroContatos />}
                   />
+                  <Route path="/contato/edit" element={<FormEditContatos />} />
                   <Route
                     path="/people/create"
                     element={<CadastroDePessoas />}

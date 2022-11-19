@@ -4,14 +4,22 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { ContatosContext } from '../../Context/ContatosContext'
 import { IContato, IPessoas } from '../../utilidade/interface'
-import { ContainerCadastro } from './CadastrarContatos.style'
+import { ContainerCadastro } from './FormEditContatos.style'
 import InputMask from 'react-input-mask'
 
-export const CadastroContatos = () => {
+export const FormEditContatos = () => {
   const { state } = useLocation()
-  console.log(state)
-  const { register, handleSubmit } = useForm<IContato>()
-  const { criarContatos } = useContext(ContatosContext)
+  // console.log(state)
+  const { register, handleSubmit } = useForm<IContato>({
+    defaultValues: {
+      tipoContato: state.tipoContato,
+      telefone: state.telefone,
+      descricao: state.descricao,
+      idPessoa: state.idPessoa,
+      idContato: state.idContato
+    }
+  })
+  const { editarContatos } = useContext(ContatosContext)
 
   return (
     <>
@@ -19,11 +27,7 @@ export const CadastroContatos = () => {
         <div className="ContainerMenor">
           <h1>Cadastro de contato</h1>
           <div>
-            <form
-              onSubmit={handleSubmit(data =>
-                criarContatos(data, state.idPessoa)
-              )}
-            >
+            <form onSubmit={handleSubmit(data => editarContatos(data))}>
               <select id="tipoContato" {...register('tipoContato')}>
                 <option value="RESIDENCIAL">RESIDENCIAL</option>
                 <option value="COMERCIAL">COMERCIAL</option>

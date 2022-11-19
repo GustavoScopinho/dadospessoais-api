@@ -43,9 +43,42 @@ export const ContatosProvider = ({ children }: IChildren) => {
     }
   }
 
+  const editarContatos = async (idContato: IContato) => {
+    try {
+      nProgress.start()
+      api.defaults.headers.common['Authorization'] = token
+      await api.put(`/contato/${idContato.idContato}`, idContato)
+      toast.success('Usuário editado com sucesso!', toastConfig)
+      navigate('/PaginaContato')
+    } catch (error) {
+      toast.error('Houve algum erro, tente novamente!', toastConfig)
+      console.error(error)
+    } finally {
+      nProgress.done()
+    }
+  }
+
+  const deletarContato = async (idContato: IContato) => {
+    try {
+      nProgress.start()
+      api.defaults.headers.common['Authorization'] = token
+      await api.delete(`contato/${idContato.idContato}`)
+      toast.success('Usuário editado com sucesso!', toastConfig)
+    } catch (error) {
+      toast.error('Houve algum erro, tente novamente!', toastConfig)
+      console.error(error)
+    }
+  }
+
   return (
     <ContatosContext.Provider
-      value={{ criarContatos, buscarContatos, dadosContatos }}
+      value={{
+        criarContatos,
+        buscarContatos,
+        dadosContatos,
+        editarContatos,
+        deletarContato
+      }}
     >
       {children}
     </ContatosContext.Provider>

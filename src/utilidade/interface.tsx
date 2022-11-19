@@ -44,6 +44,8 @@ export interface IContatoContext {
   criarContatos: (contato: IContato, id: number) => Promise<void>
   buscarContatos: () => Promise<void>
   dadosContatos: IContato | undefined | any
+  editarContatos: (idContato: IContato) => Promise<void>
+  deletarContato: (idContato: IContato) => Promise<void>
 }
 
 export interface IContato {
