@@ -13,6 +13,8 @@ import { CadastroDePessoas } from './pages/CadastroDePessoas/CadastroDePessoas'
 import { EditaPessoa } from './pages/EditaPessoa'
 import { PaginaEndereco } from './pages/PaginaEndereco/PaginaEndereco'
 import { PaginaContato } from './pages/PaginaContato/PaginaContato'
+import { CadastroEndereco } from './pages/CadastroEndereco/CadastroEndereco'
+import { EnderecoProvider } from './Context/EnderecoContext'
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <ToastContainer />
         <UsuarioProvider>
           <PessoaProvider>
+            <EnderecoProvider>
             <Routes>
               <Route path="/Cadastro" element={<CriarUsuario />} />
               <Route path="/" element={<Login />} />
@@ -29,9 +32,11 @@ function App() {
                 <Route path="/PaginaEndereco" element={<PaginaEndereco />} />
                 <Route path="/PaginaContato" element={<PaginaContato />} />
                 <Route path="/people/create" element={<CadastroDePessoas />} />
+                <Route path="/people/create/adress" element={<CadastroEndereco />} />
                 <Route path="/people/edit" element={<EditaPessoa />} />
               </Route>
             </Routes>
+            </EnderecoProvider>
           </PessoaProvider>
         </UsuarioProvider>
       </BrowserRouter>

@@ -6,22 +6,19 @@ import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
-import { IPessoas } from '../../utilidade/interface'
+import { IEndereco, IEnderecoContext} from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
+import { EnderecoContext } from '../../Context/EnderecoContext'
 
 export const PaginaEndereco = () => {
   const navigate = useNavigate()
-  const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
+  // const { dadosEndereco,  listaEnderecos } = useContext<any>(EnderecoContext);
   const { deletarUsuario } = useContext(PessoaContext)
 
-  useEffect(() => {
-    buscarDadosPessoa()
-  }, [buscarDadosPessoa()])
-
-  useEffect(() => {
-    console.log(dadosPessoa)
-  }, [dadosPessoa])
+  // useEffect(() => {
+  //   listaEnderecos()
+  // }, [listaEnderecos])
 
   return (
     <>
@@ -39,30 +36,45 @@ export const PaginaEndereco = () => {
               <div className="classOverflow"></div>
               <table>
                 <tr>
-                  <th>ID</th>
-                  <th>NOME</th>
-                  <th>DATA DE NASCIMENTO</th>
-                  <th>CPF</th>
-                  <th>EMAIL</th>
+                  <th>TIPO</th>
+                  <th>lOGRADOURO</th>
+                  <th>NUMERO</th>
+                  <th>COMPLEMENTO</th>
+                  <th>CEP</th>
+                  <th>CIDADE</th>
+                  <th>ESTADO</th>
+                  <th>PAIS</th>
                   <th>↓</th>
                 </tr>
-                {dadosPessoa?.map((pessoa: IPessoas) => {
+                {/* {dadosEndereco?.map((endereco: IEndereco) => {
                   return (
                     <tr>
                       <td>
-                        <p>{pessoa.idPessoa}</p>
+                        <p>{endereco.idPessoa}</p>
                       </td>
                       <td>
-                        <p>{pessoa.nome}</p>
+                        <p>{endereco.tipo}</p>
                       </td>
                       <td>
-                        <p>{pessoa.dataNascimento}</p>
+                        <p>{endereco.logradouro}</p>
                       </td>
                       <td>
-                        <p>{pessoa.cpf}</p>
+                        <p>{endereco.numero}</p>
                       </td>
                       <td>
-                        <p>{pessoa.email}</p>
+                        <p>{endereco.complemento}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.cep}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.cidade}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.estado}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.pais}</p>
                       </td>
                       <td className="container-button">
                         <button className="buttonTabela">
@@ -70,7 +82,7 @@ export const PaginaEndereco = () => {
                           <i>
                             <FiEdit
                               onClick={() => {
-                                navigate('/people/edit', { state: pessoa })
+                                // navigate('/people/edit', { state: pessoa })
                               }}
                             />
                           </i>
@@ -80,14 +92,14 @@ export const PaginaEndereco = () => {
                           {' '}
                           <i>
                             <RiDeleteBin6Fill
-                              onClick={() => deletarUsuario(pessoa.idPessoa)}
+                              onClick={() => deletarUsuario(endereco.idPessoa)}
                             />
                           </i>{' '}
                         </button>
                       </td>
                     </tr>
                   )
-                })}
+                })} */}
               </table>
             </div>
           </div>

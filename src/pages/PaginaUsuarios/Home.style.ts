@@ -66,6 +66,7 @@ export const ContainerHome = styled.div`
       color: #000;
 
       p {
+
         color: #c4c4cc;
       }
     }

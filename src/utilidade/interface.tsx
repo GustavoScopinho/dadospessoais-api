@@ -32,11 +32,43 @@ export interface IPessoas {
   idPessoa: number
 }
 
+export interface IEndereco {
+  idPessoa: number,
+  tipo: string,
+  logradouro: string,
+  numero: number,
+  complemento: string,
+  cep: number,
+  cidade: string,
+  estado: string,
+  pais: string,
+  idEndereco: number,
+}
+
+export interface ICep {
+  cep: string,
+  tipo: string,
+  logradouro: string,
+  numero: number,
+  complemento: string,
+  cidade: string,
+  estado: string,
+  pais: string,
+}
+
+
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
   dadosPessoa: IPessoas | undefined
   buscarDadosPessoa: (people: any) => Promise<void>
   deletarUsuario: (idUsuario: number) => Promise<void>
   editaUsuario: (idUsuario: IPessoas) => Promise<void>
+}
+
+export interface IEnderecoContext {
+  criaEnderecoPessoa: (endereco: IEndereco, idPessoa: number) => Promise<void>
+  //  buscaCep: (cep: string) => Promise<void>
+  //  cepApi: Record<string, string>
+  //  listaEnderecos: (id: number) => Promise<void>
 }
 
