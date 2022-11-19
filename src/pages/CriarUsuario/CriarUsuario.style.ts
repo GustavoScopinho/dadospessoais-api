@@ -1,10 +1,16 @@
 import styled from 'styled-components'
+import EfeitoBackground from '../../assets/Efeito-background.svg'
+import EfeitoBackgroundBranco from '../../assets/Efeito-background-branco.svg'
 
 interface backgroundImage {
   img?: string
 }
 
-export const ContainerRegister = styled.div`
+export const ContainerGeral = styled.div`
+  display: flex;
+`
+
+export const ContainerImagem = styled.div`
   background-image: linear-gradient(
     to top,
     #4b7bc4,
@@ -13,14 +19,50 @@ export const ContainerRegister = styled.div`
     #5caff1,
     #64c0ff
   );
+  background-color: #559de3;
+  background-image: url(${EfeitoBackgroundBranco});
+  background-repeat: no-repeat;
+  background-position: right -3em bottom;
+  background-size: 15em 50em;
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    margin-top: -100px;
+    color: #fff;
+    font-size: 50px;
+    padding: 0px 200px 0px 160px;
+  }
+
+  h4 {
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 200px 0px 160px;
+  }
+`
+
+export const ContainerRegister = styled.div`
+  background-color: #fff;
+  background-image: url(${EfeitoBackground});
+  background-repeat: no-repeat;
+  background-position: right -1em bottom;
+  background-size: 5em 20em;
+
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex-direction: column;
 
   .ContainerLogo {
+    margin: 0px 0px 50px 0px;
+
     img {
       width: 150px;
       height: 150px;
@@ -41,11 +83,12 @@ export const ContainerRegister = styled.div`
   }
 
   .buttonLogin {
-    background-color: #4044ed;
+    background-color: #559de3;
     color: #fff;
     border: none;
     margin-top: 30px;
     cursor: pointer;
+    border-radius: 5px;
 
     :hover {
       scale: 1.01;
@@ -56,36 +99,39 @@ export const ContainerRegister = styled.div`
   .ContainerMenor {
     width: 400px;
     height: 400px;
-    background: #00000000;
 
     h1 {
       text-align: center;
       padding-bottom: 30px;
-      color: #fff;
-      padding: 40px 0px 30px 0px;
+      color: #559de3;
     }
   }
 
   form {
     display: flex;
     flex-direction: column;
-    padding: 10px;
 
     input {
+      color: #559de3;
       height: 40px;
       margin-bottom: 10px;
-      border: none;
+      border: transparent;
       background: transparent;
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid #559de3;
+
+      :focus {
+        border: none;
+      }
 
       ::placeholder {
         border: none;
-        color: #ccc;
+        color: #559de3;
+        border: none;
       }
     }
   }
   a {
-    color: purple;
+    color: #000;
     text-decoration: none;
   }
 `

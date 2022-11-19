@@ -1,16 +1,19 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useLocation } from 'react-router-dom'
-
+import { yupResolver } from '@hookform/resolvers/yup'
 import { ContatosContext } from '../../Context/ContatosContext'
 import { IContato, IPessoas } from '../../utilidade/interface'
 import { ContainerCadastro } from './CadastrarContatos.style'
 import InputMask from 'react-input-mask'
+import { ContatoSchema } from '../../utilidade/schemas'
 
 export const CadastroContatos = () => {
   const { state } = useLocation()
   console.log(state)
-  const { register, handleSubmit } = useForm<IContato>()
+  const { register, handleSubmit } = useForm<IContato>({
+    resolver: yupResolver(ContatoSchema)
+  })
   const { criarContatos } = useContext(ContatosContext)
 
   return (

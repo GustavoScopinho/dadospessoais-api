@@ -6,18 +6,18 @@ import { IPessoas } from '../../utilidade/interface'
 import { ContainerCadastro } from '../EditaPessoa/EditaPessoa.style'
 
 export const EditaPessoa = () => {
-    const { state } = useLocation();
-  const { editaUsuario} = useContext(PessoaContext)
+  const { state } = useLocation()
+  const { editaUsuario } = useContext(PessoaContext)
 
   const { register, handleSubmit } = useForm<IPessoas>({
     defaultValues: {
-        nome: state.nome,
-        dataNascimento: state.dataNascimento,
-        email: state.email,
-        cpf: state.cpf,
-        idPessoa: state.idPessoa,
-      }
-  });
+      nome: state.nome,
+      dataNascimento: state.dataNascimento,
+      email: state.email,
+      cpf: state.cpf,
+      idPessoa: state.idPessoa
+    }
+  })
 
   return (
     <>
@@ -27,9 +27,7 @@ export const EditaPessoa = () => {
           <div>
             <p>Digite seu nome:</p>
             <form
-              onSubmit={handleSubmit((data: IPessoas) =>
-                editaUsuario(data)
-              )}
+              onSubmit={handleSubmit((data: IPessoas) => editaUsuario(data))}
             >
               <input
                 type="text"
@@ -44,12 +42,7 @@ export const EditaPessoa = () => {
                 {...register('dataNascimento')}
               />
               <p>CPF:</p>
-              <input
-                type="text"
-                id="cpf"
-                placeholder="Digite seu cpf"
-                {...register('cpf')}
-              />
+              <input type="text" id="cpf" disabled {...register('cpf')} />
               <p>Email:</p>
               <input
                 type="text"
@@ -57,11 +50,7 @@ export const EditaPessoa = () => {
                 placeholder="Digite seu e-mail"
                 {...register('email')}
               />
-              <input
-                className="button-cadastro"
-                type="submit"
-                value="Editar"
-              />
+              <input className="button-cadastro" type="submit" value="Editar" />
             </form>
           </div>
         </div>
