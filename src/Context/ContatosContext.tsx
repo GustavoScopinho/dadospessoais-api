@@ -58,15 +58,17 @@ export const ContatosProvider = ({ children }: IChildren) => {
     }
   }
 
-  const deletarContato = async (idContato: IContato) => {
+  const deletarContato = async (idContato: number) => {
     try {
       nProgress.start()
       api.defaults.headers.common['Authorization'] = token
-      await api.delete(`contato/${idContato.idContato}`)
+      await api.delete(`contato/${idContato}`)
       toast.success('Usuário editado com sucesso!', toastConfig)
     } catch (error) {
       toast.error('Houve algum erro, tente novamente!', toastConfig)
       console.error(error)
+    } finally {
+      nProgress.done()
     }
   }
 

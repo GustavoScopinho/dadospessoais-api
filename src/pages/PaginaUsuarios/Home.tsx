@@ -17,7 +17,7 @@ export const Home = () => {
 
   useEffect(() => {
     buscarDadosPessoa()
-  }, [])
+  }, [buscarDadosPessoa])
 
   return (
     <>

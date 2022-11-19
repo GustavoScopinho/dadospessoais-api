@@ -15,15 +15,11 @@ export const PaginaContato = () => {
   const navigate = useNavigate()
   const { dadosContatos, buscarContatos } =
     useContext<IContatoContext>(ContatosContext)
-  // const { deletarUsuario } = useContext(PessoaContext)
+  const { deletarContato } = useContext<IContatoContext>(ContatosContext)
 
   useEffect(() => {
     buscarContatos()
-  }, [])
-
-  // useEffect(() => {
-  //   console.log(dadosContatos)
-  // }, [dadosContatos])
+  }, [buscarContatos])
 
   return (
     <>
@@ -73,10 +69,9 @@ export const PaginaContato = () => {
                         </button>
 
                         <button className="buttonTabela">
-                          {' '}
                           <i>
                             <RiDeleteBin6Fill
-                            // onClick={() => deletarUsuario(pessoa.idPessoa)}
+                              onClick={() => deletarContato(contato.idContato)}
                             />
                           </i>{' '}
                         </button>
