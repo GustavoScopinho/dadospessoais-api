@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { EnderecoContext } from "../../Context/EnderecoContext";
-import { ICep, IEndereco, IEnderecoContext } from "../../utilidade/interface";
+import { IEndereco, IEnderecoContext } from "../../utilidade/interface";
 import { ContainerCadastro } from "./CadastroEndereco.style";
 import InputMask from "react-input-mask";
 
@@ -11,21 +11,8 @@ export const CadastroEndereco = () => {
   console.log(state);
   const { register, handleSubmit } = useForm<IEndereco>();
 
-  const {
-    formState: { errors },
-    watch,
-    setValue,
-  } = useForm<ICep>();
 
   const { criaEnderecoPessoa} = useContext(EnderecoContext);
-
-  const cep = watch("cep");
-
-  // useEffect(() => {
-  //   setValue("logradouro", cepApi?.logradouro);
-  //   setValue("cidade", cepApi?.localidade);
-  //   setValue("estado", cepApi?.uf);
-  // }, [cepApi]);
 
   return (
     <>
@@ -75,15 +62,7 @@ export const CadastroEndereco = () => {
                 placeholder="Cep"
                 {...register("cep")}
               />
-              {/* <p>CEP:</p>
-              <InputMask
-                mask="99999-999"
-                type="text"
-                id="cep"
-                placeholder="Cep"
-                {...register("cep")}
-                onBlur={() => buscaCep(cep)}
-              /> */}
+           
               <p>Cidade</p>
               <input
                 type="text"

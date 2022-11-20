@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import { UsuarioContext } from '../../Context/UsuarioContext'
 import { useContext } from 'react'
 import { ContainerGeral, ContainerHome } from './Endereco.style'
 import { Link, useNavigate } from 'react-router-dom'
-import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
 import { FiEdit } from 'react-icons/fi'
 import { IEndereco, IEnderecoContext} from '../../utilidade/interface'
@@ -13,12 +11,17 @@ import { EnderecoContext } from '../../Context/EnderecoContext'
 
 export const PaginaEndereco = () => {
   const navigate = useNavigate()
-  // const { dadosEndereco,  listaEnderecos } = useContext<any>(EnderecoContext);
-  const { deletarUsuario } = useContext(PessoaContext)
+  const { dadosEnderecos,  listaEndereco } = useContext<any>(EnderecoContext);
+  // const { deletarUsuario } = useContext(PessoaContext)
 
-  // useEffect(() => {
-  //   listaEnderecos()
-  // }, [listaEnderecos])
+  useEffect(() => {
+    listaEndereco()
+  }, [])
+
+
+  useEffect(() => {
+    console.log(dadosEnderecos);
+  }, [])
 
   return (
     <>
@@ -37,21 +40,18 @@ export const PaginaEndereco = () => {
               <table>
                 <tr>
                   <th>TIPO</th>
-                  <th>lOGRADOURO</th>
+                  <th>LOGRADOURO</th>
                   <th>NUMERO</th>
                   <th>COMPLEMENTO</th>
                   <th>CEP</th>
                   <th>CIDADE</th>
                   <th>ESTADO</th>
-                  <th>PAIS</th>
+                  <th>PAÍS</th>
                   <th>↓</th>
                 </tr>
-                {/* {dadosEndereco?.map((endereco: IEndereco) => {
+                 {dadosEnderecos?.map((endereco: IEndereco) => {
                   return (
                     <tr>
-                      <td>
-                        <p>{endereco.idPessoa}</p>
-                      </td>
                       <td>
                         <p>{endereco.tipo}</p>
                       </td>
@@ -92,14 +92,14 @@ export const PaginaEndereco = () => {
                           {' '}
                           <i>
                             <RiDeleteBin6Fill
-                              onClick={() => deletarUsuario(endereco.idPessoa)}
+                              // onClick={() => deletarUsuario(endereco.idPessoa)}
                             />
                           </i>{' '}
                         </button>
                       </td>
                     </tr>
                   )
-                })} */}
+                })} 
               </table>
             </div>
           </div>

@@ -38,24 +38,12 @@ export interface IEndereco {
   logradouro: string,
   numero: number,
   complemento: string,
-  cep: number,
+  cep: string,
   cidade: string,
   estado: string,
   pais: string,
   idEndereco: number,
 }
-
-export interface ICep {
-  cep: string,
-  tipo: string,
-  logradouro: string,
-  numero: number,
-  complemento: string,
-  cidade: string,
-  estado: string,
-  pais: string,
-}
-
 
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
@@ -67,8 +55,7 @@ export interface IPessoaContext {
 
 export interface IEnderecoContext {
   criaEnderecoPessoa: (endereco: IEndereco, idPessoa: number) => Promise<void>
-  //  buscaCep: (cep: string) => Promise<void>
-  //  cepApi: Record<string, string>
-  //  listaEnderecos: (id: number) => Promise<void>
+  listaEndereco: () => Promise<void>
+  dadosEnderecos: IEndereco | undefined | any
 }
 
