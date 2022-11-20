@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { UsuarioContext } from '../../Context/UsuarioContext'
 import { useContext } from 'react'
-import { ContainerGeral, ContainerHome } from './Home.style'
 import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
@@ -9,6 +8,7 @@ import { FiEdit } from 'react-icons/fi'
 import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
+import { ContainerGeral, ContainerHome } from './Home.style'
 
 export const Home = () => {
   const navigate = useNavigate()
