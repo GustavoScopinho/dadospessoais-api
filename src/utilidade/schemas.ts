@@ -16,3 +16,15 @@ export const userFormSchema = yup.object().shape({
 //   dataNascimento: yup.string().required('')
 //   cpf: yup.string().required()
 // })
+
+export const enderecoFormSchema = yup.object().shape({
+  cep: yup.string().required("Por favor, digite o CEP").length(9, "O CEP precisa ter 8 dígitos"),
+  tipo: yup.string().required("O tipo é obrigatório"),
+  logradouro: yup.string().required("O logradouro é obrigatório"),
+  numero: yup.string().required("O número é obrigatório").min(1, "O número precisa ser no mínimo 1"),
+  complemento: yup.string(),
+  cidade: yup.string().required("A cidade é obrigatória").min(3, "A cidade precisa ter no mínimo 3 letras"),
+  estado: yup.string().required("O estado é obrigatório"),
+  pais: yup.string().required("O país é obrigatório")
+  
+})

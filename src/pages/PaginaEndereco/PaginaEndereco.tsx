@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react'
-import { UsuarioContext } from '../../Context/UsuarioContext'
-import { useContext } from 'react'
-import { ContainerGeral, ContainerHome } from './Endereco.style'
-import { Link, useNavigate } from 'react-router-dom'
-import { PessoaContext } from '../../Context/PessoaContext'
-import { RiDeleteBin6Fill } from 'react-icons/ri'
-import { FiEdit } from 'react-icons/fi'
-import { IPessoas } from '../../utilidade/interface'
-import { Header } from '../../components/Header/Header'
-import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
+import React, { useEffect, useMemo } from "react";
+import { useContext } from "react";
+import { ContainerGeral, ContainerHome } from "./Endereco.style";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
+import { IEndereco, IEnderecoContext } from "../../utilidade/interface";
+import { Header } from "../../components/Header/Header";
+import { FaAddressCard, FaAddressBook } from "react-icons/fa";
+import { EnderecoContext } from "../../Context/EnderecoContext";
+import { EnderecoPagination } from "../../Paginacao/EnderecoPagination";
 
 export const PaginaEndereco = () => {
-  const navigate = useNavigate()
-  const { dadosPessoa, buscarDadosPessoa } = useContext<any>(PessoaContext)
-  const { deletarUsuario } = useContext(PessoaContext)
+  const navigate = useNavigate();
+  const { dadosEnderecos, listaEndereco, deleteEndereco, listaEnderecos } =
+    useContext<any>(EnderecoContext);
 
   useEffect(() => {
-    buscarDadosPessoa()
-  }, [buscarDadosPessoa()])
+    listaEndereco();
+  }, []);
 
   useEffect(() => {
-    console.log(dadosPessoa)
-  }, [dadosPessoa])
+    console.log(dadosEnderecos);
+  }, []);
 
   return (
     <>
@@ -33,60 +33,77 @@ export const PaginaEndereco = () => {
             <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
                 <div>
-                  <h3>Endereços usuários</h3>
+                <EnderecoPagination />
+                  {/* <h3>Endereços usuários</h3> */}
                 </div>
               </div>
               <div className="classOverflow"></div>
               <table>
                 <tr>
-                  <th>ID</th>
-                  <th>NOME</th>
-                  <th>DATA DE NASCIMENTO</th>
-                  <th>CPF</th>
-                  <th>EMAIL</th>
+                  <th>TIPO</th>
+                  <th>LOGRADOURO</th>
+                  <th>NUMERO</th>
+                  <th>COMPLEMENTO</th>
+                  <th>CEP</th>
+                  <th>CIDADE</th>
+                  <th>ESTADO</th>
+                  <th>PAÍS</th>
                   <th>↓</th>
                 </tr>
-                {dadosPessoa?.map((pessoa: IPessoas) => {
+                {listaEnderecos?.map((endereco: IEndereco) => {
                   return (
                     <tr>
                       <td>
-                        <p>{pessoa.idPessoa}</p>
+                        <p>{endereco.tipo}</p>
                       </td>
                       <td>
-                        <p>{pessoa.nome}</p>
+                        <p>{endereco.logradouro}</p>
                       </td>
                       <td>
-                        <p>{pessoa.dataNascimento}</p>
+                        <p>{endereco.numero}</p>
                       </td>
                       <td>
-                        <p>{pessoa.cpf}</p>
+                        <p>{endereco.complemento}</p>
                       </td>
                       <td>
-                        <p>{pessoa.email}</p>
+                        <p>{endereco.cep}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.cidade}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.estado}</p>
+                      </td>
+                      <td>
+                        <p>{endereco.pais}</p>
                       </td>
                       <td className="container-button">
                         <button className="buttonTabela">
-                          {' '}
+                          {" "}
                           <i>
                             <FiEdit
                               onClick={() => {
-                                navigate('/people/edit', { state: pessoa })
+                                navigate("/people/edit/adress", {
+                                  state: endereco,
+                                });
                               }}
                             />
                           </i>
                         </button>
 
                         <button className="buttonTabela">
-                          {' '}
+                          {" "}
                           <i>
                             <RiDeleteBin6Fill
-                              onClick={() => deletarUsuario(pessoa.idPessoa)}
+                              onClick={() =>
+                                deleteEndereco(endereco.idEndereco)
+                              }
                             />
-                          </i>{' '}
+                          </i>{" "}
                         </button>
                       </td>
                     </tr>
-                  )
+                  );
                 })}
               </table>
             </div>
@@ -94,5 +111,5 @@ export const PaginaEndereco = () => {
         </ContainerHome>
       </ContainerGeral>
     </>
-  )
-}
+  );
+};

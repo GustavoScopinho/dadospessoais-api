@@ -48,11 +48,8 @@ export const CadastroDePessoas = () => {
                 placeholder="Digite seu e-mail"
                 {...register('email')}
               />
-              <input
-                className="button-cadastro"
-                type="submit"
-                value="Cadastrar"
-              />
+              <button  type="submit"
+                value="Cadastrar" > Cadastrar </button>
             </form>
           </div>
         </div>

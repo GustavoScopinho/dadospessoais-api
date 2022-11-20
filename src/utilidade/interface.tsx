@@ -32,11 +32,35 @@ export interface IPessoas {
   idPessoa: number
 }
 
+export interface IEndereco {
+  idPessoa: number,
+  tipo: string,
+  logradouro: string,
+  numero: number,
+  complemento: string,
+  cep: string,
+  cidade: string,
+  estado: string,
+  pais: string,
+  idEndereco: number,
+}
+
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
   dadosPessoa: IPessoas | undefined
   buscarDadosPessoa: (people: any) => Promise<void>
   deletarUsuario: (idUsuario: number) => Promise<void>
   editaUsuario: (idUsuario: IPessoas) => Promise<void>
+}
+
+export interface IEnderecoContext {
+  criaEnderecoPessoa: (endereco: IEndereco, idPessoa: number) => Promise<void>
+  listaEndereco: () => Promise<void>
+  dadosEnderecos: IEndereco | undefined | any
+  deleteEndereco: (id: number) => Promise<void>
+  editaEndereco: (endereco: IEndereco) => Promise<void>
+  enderecoPagination: (page: string) => Promise<void>
+  totalDePaginas: number;
+  listaEnderecos: IEndereco[];
 }
 

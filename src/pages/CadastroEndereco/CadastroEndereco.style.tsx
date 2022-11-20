@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const ContainerCadastro = styled.div`
   background: rgb(28,32,59);
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
+  padding-bottom: 9%;
 
   h1 {
+    margin-top: 5%;
     margin-bottom: 2%;
     color: #fff;
     text-align: center;
@@ -17,6 +18,10 @@ export const ContainerCadastro = styled.div`
 font-weight: 500;
     color: #fff;
     padding-bottom: 10px;
+  }
+  .erro-mensage{
+    color: red;
+    opacity: 50%;
   }
 
   }
@@ -28,7 +33,6 @@ font-weight: 500;
 
     div {
       width: 500px;
-      height: 450px;
       border-radius: 10px;
       background-color: #323238;;
       opacity: 85%;
@@ -54,7 +58,6 @@ font-weight: 500;
         flex-direction: column;
 
         input {
-          padding-right: 2%;
         padding-left: 2%;
         background:  #c4c4cc;
         height: 40px;
