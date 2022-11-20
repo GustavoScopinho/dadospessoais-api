@@ -15,35 +15,13 @@ export const ContainerCadastro = styled.div`
   justify-content: center;
 
   h1 {
+    margin-bottom: 2%;
     color: #fff;
     text-align: center;
     padding-bottom: 20px;
   }
   p {
     padding-bottom: 10px;
-  }
-
-  .button-cadastro {
-    background-image: linear-gradient(
-      to top,
-      #4b7bc4,
-      #4f8cd4,
-      #559de3,
-      #5caff1,
-      #64c0ff
-    );
-    border-radius: 5px;
-    text-decoration: none;
-    padding: 5px 10px;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    height: 50px;
-    border: none;
-    :hover {
-      scale: 1.01;
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
   }
 
   .ContainerMenor {

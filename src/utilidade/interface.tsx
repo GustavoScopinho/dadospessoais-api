@@ -32,6 +32,19 @@ export interface IPessoas {
   idPessoa: number
 }
 
+export interface IEndereco {
+  idPessoa: number
+  tipo: string
+  logradouro: string
+  numero: number
+  complemento: string
+  cep: string
+  cidade: string
+  estado: string
+  pais: string
+  idEndereco: number
+}
+
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
 
@@ -60,4 +73,13 @@ export interface IContato {
   descricao: string
   idPessoa: number
   idContato: number
+}
+export interface IEnderecoContext {
+  criaEnderecoPessoa: (endereco: IEndereco, idPessoa: number) => Promise<void>
+  dadosEnderecos: IEndereco | undefined | any
+  listaEndereco: (page: string) => Promise<void>
+
+  deleteEndereco: (id: number) => Promise<void>
+  editaEndereco: (endereco: IEndereco) => Promise<void>
+  totalDePaginas: number
 }

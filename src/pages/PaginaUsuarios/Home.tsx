@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { UsuarioContext } from '../../Context/UsuarioContext'
 import { useContext } from 'react'
-import { ContainerGeral, ContainerHome } from './Home.style'
 import { Link, useNavigate } from 'react-router-dom'
 import { PessoaContext } from '../../Context/PessoaContext'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
@@ -10,6 +9,7 @@ import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
 import { PessoaPaginacao } from '../../components/Paginacao/PessoaPaginacao'
+import { ContainerGeral, ContainerHome } from './Home.style'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -102,7 +102,13 @@ export const Home = () => {
                         <button className="buttonTabela">
                           {' '}
                           <i>
-                            <FaAddressCard />
+                            <FaAddressCard
+                              onClick={() => {
+                                navigate('/people/create/adress', {
+                                  state: pessoa
+                                })
+                              }}
+                            />
                           </i>
                         </button>
 
