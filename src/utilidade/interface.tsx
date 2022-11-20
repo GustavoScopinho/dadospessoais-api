@@ -57,5 +57,7 @@ export interface IEnderecoContext {
   criaEnderecoPessoa: (endereco: IEndereco, idPessoa: number) => Promise<void>
   listaEndereco: () => Promise<void>
   dadosEnderecos: IEndereco | undefined | any
+  deleteEndereco: (id: number) => Promise<void>
+  editaEndereco: (endereco: IEndereco) => Promise<void>
 }
 

@@ -11,8 +11,8 @@ import { EnderecoContext } from '../../Context/EnderecoContext'
 
 export const PaginaEndereco = () => {
   const navigate = useNavigate()
-  const { dadosEnderecos,  listaEndereco } = useContext<any>(EnderecoContext);
-  // const { deletarUsuario } = useContext(PessoaContext)
+  const { dadosEnderecos,  listaEndereco , deleteEndereco} = useContext<any>(EnderecoContext);
+
 
   useEffect(() => {
     listaEndereco()
@@ -82,7 +82,7 @@ export const PaginaEndereco = () => {
                           <i>
                             <FiEdit
                               onClick={() => {
-                                // navigate('/people/edit', { state: pessoa })
+                                navigate('/people/edit/adress', { state: endereco })
                               }}
                             />
                           </i>
@@ -92,7 +92,7 @@ export const PaginaEndereco = () => {
                           {' '}
                           <i>
                             <RiDeleteBin6Fill
-                              // onClick={() => deletarUsuario(endereco.idPessoa)}
+                              onClick={() => deleteEndereco(endereco.idEndereco)}
                             />
                           </i>{' '}
                         </button>

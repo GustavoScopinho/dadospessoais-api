@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { CriarUsuario } from './pages/CriarUsuario/CriarUsuario'
-import { UsuarioContext, UsuarioProvider } from './Context/UsuarioContext'
+import {  UsuarioProvider } from './Context/UsuarioContext'
 import { Login } from './pages/Login/Login'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -15,6 +15,7 @@ import { PaginaEndereco } from './pages/PaginaEndereco/PaginaEndereco'
 import { PaginaContato } from './pages/PaginaContato/PaginaContato'
 import { CadastroEndereco } from './pages/CadastroEndereco/CadastroEndereco'
 import { EnderecoProvider } from './Context/EnderecoContext'
+import { EditaEndereco } from './pages/EditaEndereco/EditaEndereco'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/PaginaEndereco" element={<PaginaEndereco />} />
                 <Route path="/PaginaContato" element={<PaginaContato />} />
                 <Route path="/people/create" element={<CadastroDePessoas />} />
+                <Route path="/people/edit/adress" element={<EditaEndereco />} />
                 <Route path="/people/create/adress" element={<CadastroEndereco />} />
                 <Route path="/people/edit" element={<EditaPessoa />} />
               </Route>

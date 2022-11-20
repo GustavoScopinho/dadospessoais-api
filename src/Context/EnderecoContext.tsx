@@ -35,7 +35,9 @@ export const EnderecoProvider = ({ children }: IChildren) => {
     try {
       nProgress.start();
       api.defaults.headers.common["Authorization"] = token;
-      await api.get(`/endereco`).then((response) => setDadosEnderecos(response.data.content))
+      await api
+        .get(`/endereco`)
+        .then((response) => setDadosEnderecos(response.data.content));
     } catch (error) {
       toast.error("Algo deu errado, tente novamente", toastConfig);
       console.error(error);
@@ -44,9 +46,45 @@ export const EnderecoProvider = ({ children }: IChildren) => {
     }
   };
 
+  const deleteEndereco = async (id: number) => {
+    try {
+      nProgress.start();
+      api.defaults.headers.common["Authorization"] = token;
+      await api.delete(`endereco/${id}`);
+      toast.success("Endereço deletado com sucesso!", toastConfig);
+    } catch (error) {
+      toast.error("Houve algum error, tente novamente!", toastConfig);
+      console.log(error);
+    } finally {
+      nProgress.done();
+    }
+  };
+
+  const editaEndereco = async (endereco: IEndereco) => {
+    try {
+      nProgress.start();
+      api.defaults.headers.common["Authorization"] = token;
+      await api.put(`endereco/${endereco.idEndereco}`, endereco);
+      toast.success("Endereço editado com sucesso!!", toastConfig);
+      navigate('/PaginaEndereco')
+    } catch (error) {
+      toast.error("Houve algum error, tente novamente!", toastConfig);
+      console.log(error);
+    } finally {
+      nProgress.done();
+    }
+  };
+
   return (
     <EnderecoContext.Provider
-      value={{ criaEnderecoPessoa, dadosEnderecos, listaEndereco}}>
+      value={{
+        criaEnderecoPessoa,
+        dadosEnderecos,
+        listaEndereco,
+        deleteEndereco,
+        editaEndereco,
+      }}
+    >
       {children}
     </EnderecoContext.Provider>
   );
