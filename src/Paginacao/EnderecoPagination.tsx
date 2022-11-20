@@ -1,7 +1,6 @@
 import { useContext, useEffect, useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { EnderecoContext } from "../Context/EnderecoContext";
-import { Teste } from "./EnderecoPagination.style";
 
 export const EnderecoPagination = () => {
   const { totalDePaginas, enderecoPagination } = useContext(EnderecoContext);
