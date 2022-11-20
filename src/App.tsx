@@ -28,9 +28,11 @@ function App() {
               <Routes>
                 <Route path="/Cadastro" element={<CriarUsuario />} />
                 <Route path="/" element={<Login />} />
+
                 <Route element={<RotaPrivada />}>
                   <Route path="/Home" element={<Home />} />
                   <Route path="/PaginaEndereco" element={<PaginaEndereco />} />
+
                   <Route path="/PaginaContato" element={<PaginaContato />} />
                   <Route
                     path="/contato/create"

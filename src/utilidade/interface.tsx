@@ -34,10 +34,15 @@ export interface IPessoas {
 
 export interface IPessoaContext {
   criarDadosPessoa: (people: IPessoas) => Promise<void>
-  dadosPessoa: IPessoas | undefined
+
   buscarDadosPessoa: (people: any) => Promise<void>
   deletarUsuario: (idUsuario: number) => Promise<void>
   editaUsuario: (idUsuario: IPessoas) => Promise<void>
+  totalPages: number
+  dadosPessoa: IPeopleData[]
+}
+export interface IPeopleData extends IPessoas {
+  idPessoa: number
 }
 
 export interface IContatoContext {

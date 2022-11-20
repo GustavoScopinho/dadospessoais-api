@@ -120,7 +120,8 @@ export const ContainerRegister = styled.div`
       border-bottom: 2px solid #559de3;
 
       :focus {
-        border: none;
+        outline: 0;
+        box-shadow: 0 0 0 0;
       }
 
       ::placeholder {

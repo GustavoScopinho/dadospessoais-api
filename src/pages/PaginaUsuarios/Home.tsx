@@ -9,6 +9,7 @@ import { FiEdit } from 'react-icons/fi'
 import { IPessoas } from '../../utilidade/interface'
 import { Header } from '../../components/Header/Header'
 import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
+import { PessoaPaginacao } from '../../components/Paginacao/PessoaPaginacao'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -16,14 +17,15 @@ export const Home = () => {
   const { deletarUsuario } = useContext(PessoaContext)
 
   useEffect(() => {
-    buscarDadosPessoa()
-  }, [buscarDadosPessoa])
+    buscarDadosPessoa('1')
+  }, [])
 
   return (
     <>
       <ContainerGeral>
         <Header />
         <ContainerHome>
+          <PessoaPaginacao />
           <div className="ContainerMenor">
             <h2>Lista de pessoas</h2>
             <div className="ContainerTabela">
@@ -58,10 +60,20 @@ export const Home = () => {
                         <p>{pessoa.nome}</p>
                       </td>
                       <td>
-                        <p>{pessoa.dataNascimento}</p>
+                        <p>
+                          {pessoa.dataNascimento.replace(
+                            /(\d{4})-(\d{2})-(\d{2})/,
+                            '$3/$2/$1'
+                          )}
+                        </p>
                       </td>
                       <td>
-                        <p>{pessoa.cpf}</p>
+                        <p>
+                          {pessoa.cpf.replace(
+                            /(\d{3})(\d{3})(\d{3})(\d{2})/,
+                            '$1.$2.$3-$4'
+                          )}
+                        </p>
                       </td>
                       <td>
                         <p>{pessoa.email}</p>

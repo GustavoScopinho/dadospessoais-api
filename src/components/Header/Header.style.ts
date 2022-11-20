@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const ContainerHeader = styled.div`
   width: 20%;
-  background-color: #000;
+  background-color: #559de3;
 
   display: flex;
 
   border-bottom: 1px solid #fff;
   align-items: center;
   flex-direction: column;
+  /* border-right: 1px solid #1c203b; */
 
   .ContainerLogout {
     width: 100%;
@@ -16,6 +17,11 @@ export const ContainerHeader = styled.div`
     .iconLogout {
       margin: 10px;
       cursor: pointer;
+      background-color: #559de3;
+      color: #fff;
+      border-radius: 5px;
+      padding: 2px;
+      border: none;
     }
   }
 `
@@ -27,9 +33,9 @@ export const ContainerMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0px;
+  margin: 30px 0px;
 
-  background: #000;
+  background: #559de3;
 
   img {
     width: 100px;
@@ -57,12 +63,15 @@ export const ContainerMenu = styled.div`
   a {
     text-decoration: none;
     color: #fff;
-
     cursor: pointer;
+
+    :hover {
+      color: #1c203b;
+    }
   }
 
   p {
-    color: #c4c4cc;
+    color: #fff;
     padding: 5px 0px;
     display: flex;
     align-items: center;

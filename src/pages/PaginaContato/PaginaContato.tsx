@@ -15,6 +15,7 @@ export const PaginaContato = () => {
   const navigate = useNavigate()
   const { dadosContatos, buscarContatos } =
     useContext<IContatoContext>(ContatosContext)
+
   const { deletarContato } = useContext<IContatoContext>(ContatosContext)
 
   useEffect(() => {

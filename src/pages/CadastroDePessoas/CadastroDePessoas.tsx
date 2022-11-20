@@ -25,7 +25,7 @@ export const CadastroDePessoas = () => {
         <div className="ContainerMenor">
           <h1>Cadastro de pessoas</h1>
           <div>
-            <p>Digite seu nome:</p>
+            <label htmlFor="">Digite seu nome:</label>
             <form
               onSubmit={handleSubmit((data: IPessoas) =>
                 criarDadosPessoa(data)
@@ -38,34 +38,30 @@ export const CadastroDePessoas = () => {
                 {...register('nome')}
               />
               {errors && <p>{errors.nome?.message}</p>}
-              <p>Data de nascimento:</p>
+              <label htmlFor="">Data de nascimento:</label>
               <input
                 type="date"
                 id="dataNascimento"
                 {...register('dataNascimento')}
               />
               {errors && <p>{errors.dataNascimento?.message}</p>}
-              <p>CPF:</p>
+
               <InputMask
                 mask="999.999.999-99"
-                type="text"
-                id="cpf"
-                {...register('cpf')}
-              />
-              <input
                 type="text"
                 id="cpf"
                 placeholder="Digite seu cpf"
                 {...register('cpf')}
               />
+              {/* <input
+                type="text"
+                id="cpf"
+                placeholder="Digite seu cpf"
+                {...register('cpf')}
+              /> */}
               {errors && <p>{errors.cpf?.message}</p>}
               <p>Email:</p>
-              <input
-                type="text"
-                id="email"
-                placeholder="Digite seu e-mail"
-                {...register('email')}
-              />
+              <input type="text" id="email" {...register('email')} />
               {errors && <p>{errors.email?.message}</p>}
               <input
                 className="button-cadastro"

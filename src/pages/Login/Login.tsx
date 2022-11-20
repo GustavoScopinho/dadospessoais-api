@@ -41,7 +41,7 @@ export const Login = () => {
               <input
                 type="text"
                 id="login"
-                placeholder="Username"
+                placeholder="Login"
                 {...register('login')}
               />
               {errors && <p>{errors.login?.message}</p>}

@@ -120,7 +120,8 @@ export const ContainerLogin = styled.div`
       border-bottom: 2px solid #559de3;
 
       :focus {
-        border: none;
+        outline: 0;
+        box-shadow: 0 0 0 0;
       }
 
       ::placeholder {
@@ -131,7 +132,7 @@ export const ContainerLogin = styled.div`
     }
   }
   a {
-    color: #000;
+    color: #294e67;
     text-decoration: none;
   }
 `

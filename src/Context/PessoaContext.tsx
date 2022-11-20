@@ -7,7 +7,8 @@ import {
   IPessoaContext,
   toastConfig,
   IChildren,
-  IPessoas
+  IPessoas,
+  IPeopleData
 } from '../utilidade/interface'
 import { UsuarioContext } from './UsuarioContext'
 import { useNavigate, Navigate } from 'react-router-dom'
@@ -15,11 +16,14 @@ import { useNavigate, Navigate } from 'react-router-dom'
 export const PessoaContext = createContext({} as IPessoaContext)
 
 export const PessoaProvider = ({ children }: IChildren) => {
+  const [totalPages, setTotalPages] = useState(0)
+  const [dadosPessoa, setDadosPessoa] = useState<IPeopleData[]>([])
   const { token } = useContext(UsuarioContext)
   const navigate = useNavigate()
 
   const criarDadosPessoa = async (people: IPessoas) => {
     try {
+      people.cpf = people.cpf.replace(/[^\d]/g, '')
       await api.post('/pessoa', people)
       toast.success('Dados pessoais cadastrado!', toastConfig)
       navigate('/Home')
@@ -28,14 +32,15 @@ export const PessoaProvider = ({ children }: IChildren) => {
       toast.error('Algo deu errado, tente novamente', toastConfig)
     }
   }
-  const [dadosPessoa, setDadosPessoa] = useState<IPessoas>()
 
-  const buscarDadosPessoa = async () => {
+  const buscarDadosPessoa = async (page: string) => {
     try {
       api.defaults.headers.common['Authorization'] = token
-      await api
-        .get('/pessoa')
-        .then(response => setDadosPessoa(response.data.content))
+      const { data } = await api.get(
+        `/pessoa?pagina=${parseInt(page) - 1}&tamanhoDasPaginas=20`
+      )
+      setTotalPages(data.totalPages)
+      setDadosPessoa(data.content)
     } catch (error) {
       console.log(error)
     }
@@ -43,7 +48,9 @@ export const PessoaProvider = ({ children }: IChildren) => {
 
   const deletarUsuario = async (idUsuario: number) => {
     try {
+      api.defaults.headers.common['Authorization'] = token
       await api.delete(`/pessoa/${idUsuario}`)
+      buscarDadosPessoa('1')
       toast.success('Usuário deletado com sucesso!', toastConfig)
     } catch (error) {
       console.log(error)
@@ -71,7 +78,8 @@ export const PessoaProvider = ({ children }: IChildren) => {
         dadosPessoa,
         buscarDadosPessoa,
         deletarUsuario,
-        editaUsuario
+        editaUsuario,
+        totalPages
       }}
     >
       {children}
