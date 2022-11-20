@@ -6,8 +6,8 @@ import { EnderecoContext } from '../Context/EnderecoContext'
 export const EnderecoPagination = () => {
   const { totalDePaginas, listaEndereco } = useContext(EnderecoContext)
 
-  const [searchParams] = useSearchParams()
-  const numeroPagina = searchParams.get('page') || '1'
+  const [searchParam] = useSearchParams()
+  const numeroPagina = searchParam.get('page') || '1'
 
   const pages = useMemo(() => {
     const listaPaginas: number[] = []

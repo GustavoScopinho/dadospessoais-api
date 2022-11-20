@@ -16,20 +16,19 @@ export const PaginaEndereco = () => {
     useContext<any>(EnderecoContext)
 
   useEffect(() => {
-    listaEndereco()
-  }, [listaEndereco])
+    listaEndereco('1')
+  }, [])
 
   return (
     <>
       <ContainerGeral>
         <Header />
         <ContainerHome>
-          <EnderecoPagination />
           <div className="ContainerMenor">
             <h2>Lista de Endereço</h2>
             <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
-                <div>{/* <h3>Endereços usuários</h3> */}</div>
+                <EnderecoPagination />
               </div>
               <div className="classOverflow"></div>
               <table>

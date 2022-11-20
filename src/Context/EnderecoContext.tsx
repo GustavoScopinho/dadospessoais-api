@@ -39,7 +39,7 @@ export const EnderecoProvider = ({ children }: IChildren) => {
       const { data } = await api.get(
         `/endereco?pagina=${parseInt(page) - 1}&tamanhoDasPaginas=20`
       )
-      setTotalDePaginas(data.totalDePaginas)
+      setTotalDePaginas(data.totalPages)
       setDadosEnderecos(data.content)
     } catch (error) {
       console.error(error)
@@ -51,6 +51,7 @@ export const EnderecoProvider = ({ children }: IChildren) => {
       nProgress.start()
       api.defaults.headers.common['Authorization'] = token
       await api.delete(`endereco/${id}`)
+      listaEndereco('1')
       toast.success('Endereço deletado com sucesso!', toastConfig)
     } catch (error) {
       toast.error('Houve algum error, tente novamente!', toastConfig)

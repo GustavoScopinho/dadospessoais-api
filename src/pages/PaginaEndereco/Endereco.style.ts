@@ -21,23 +21,23 @@ export const ContainerHome = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(28, 32, 59);
+    background-color: #e5e3e3;
     width: 100%;
 
     h2 {
-      color: #fff;
+      color: #1c203b;
       padding: 30px 0px;
       text-align: left;
     }
     h3 {
       text-align: center;
-      color: #c4c4cc;
+      color: rgb(28, 32, 59);
     }
 
     .buttonTabela {
-      color: #fff;
-      background: #323238;
-      border: 1px solid rgb(28, 32, 59);
+      color: #5caff1;
+      background: #fff;
+      border: 1px solid #5caff1;
 
       :hover {
         scale: 1.1;
@@ -53,36 +53,38 @@ export const ContainerHome = styled.div`
       tr {
       }
       th {
-        background: rgb(28, 32, 59);
+        background: #5caff1;
         color: #fff;
         height: 54.3px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
     td {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #5caff1;
       text-align: center;
       height: 65px;
       font-weight: 600;
       color: #000;
+      padding-left: 20px;
+      padding-right: 20px;
 
       p {
-        color: #c4c4cc;
+        color: #000;
       }
     }
 
     .ContainerTabela {
-      border-radius: 5px;
       width: 90%;
       height: 100%;
       border-radius: 5px;
-      background-color: #323238;
+      background-color: #fff;
 
       display: flex;
       flex-direction: column;
 
       margin-bottom: 50px;
       align-items: center;
-      box-shadow: 1px 1px 5px 1px #fff;
 
       .containerBotaoCadastro {
         height: 70px;
@@ -90,7 +92,7 @@ export const ContainerHome = styled.div`
         align-items: center;
         display: flex;
         justify-content: space-between;
-        background: #323238;
+        border-radius: 5px;
 
         div {
           margin: 0px 50px;
@@ -108,7 +110,7 @@ export const ContainerHome = styled.div`
     cursor: pointer;
   }
   .button-cadastro {
-    background: rgb(28, 32, 59);
+    background: #5caff1;
     text-decoration: none;
     padding: 8px 15px;
     text-align: center;
