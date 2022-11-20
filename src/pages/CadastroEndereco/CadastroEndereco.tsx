@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { appendErrors, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { EnderecoContext } from "../../Context/EnderecoContext";
-import { IEndereco, IEnderecoContext } from "../../utilidade/interface";
+import { IEndereco} from "../../utilidade/interface";
 import { ContainerCadastro } from "./CadastroEndereco.style";
 import InputMask from "react-input-mask";
 import { yupResolver } from "@hookform/resolvers/yup";

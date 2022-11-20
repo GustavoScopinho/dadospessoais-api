@@ -9,6 +9,7 @@ export const ContainerCadastro = styled.div`
   padding-bottom: 9%;
 
   h1 {
+    margin-top: 20%;
     margin-bottom: 2%;
     color: #fff;
     text-align: center;
@@ -19,7 +20,6 @@ font-weight: 500;
     color: #fff;
     padding-bottom: 10px;
   }
-
   }
 
   .ContainerMenor {
@@ -29,7 +29,6 @@ font-weight: 500;
 
     div {
       width: 500px;
-      height: 690px;
       border-radius: 10px;
       background-color: #323238;;
       opacity: 85%;

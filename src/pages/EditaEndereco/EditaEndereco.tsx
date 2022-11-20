@@ -5,7 +5,6 @@ import { EnderecoContext } from "../../Context/EnderecoContext";
 import { IEndereco, IEnderecoContext } from "../../utilidade/interface";
 import { ContainerCadastro } from "./EditaEndereco.style";
 import InputMask from "react-input-mask";
-import { RiCopperDiamondLine } from "react-icons/ri";
 
 export const EditaEndereco = () => {
   const { state } = useLocation();
@@ -24,7 +23,7 @@ export const EditaEndereco = () => {
             pais: state.pais,
             idEndereco: state.idEndereco,
       },
-    }
+    },
   )
   const { editaEndereco} = useContext(EnderecoContext);
 
@@ -72,7 +71,7 @@ export const EditaEndereco = () => {
                 id="cep"
                 placeholder="Cep"
                 {...register("cep")}
-              />
+              /> 
            
               <p>Cidade</p>
               <input
