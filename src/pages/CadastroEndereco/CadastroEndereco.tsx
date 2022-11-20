@@ -10,8 +10,6 @@ export const CadastroEndereco = () => {
   const { state } = useLocation();
   console.log(state);
   const { register, handleSubmit } = useForm<IEndereco>();
-
-
   const { criaEnderecoPessoa} = useContext(EnderecoContext);
 
   return (

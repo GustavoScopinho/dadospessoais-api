@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react'
-import { useContext } from 'react'
-import { ContainerGeral, ContainerHome } from './Endereco.style'
-import { Link, useNavigate } from 'react-router-dom'
-import { RiDeleteBin6Fill } from 'react-icons/ri'
-import { FiEdit } from 'react-icons/fi'
-import { IEndereco, IEnderecoContext} from '../../utilidade/interface'
-import { Header } from '../../components/Header/Header'
-import { FaAddressCard, FaAddressBook } from 'react-icons/fa'
-import { EnderecoContext } from '../../Context/EnderecoContext'
+import React, { useEffect, useMemo } from "react";
+import { useContext } from "react";
+import { ContainerGeral, ContainerHome } from "./Endereco.style";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { RiDeleteBin6Fill } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
+import { IEndereco, IEnderecoContext } from "../../utilidade/interface";
+import { Header } from "../../components/Header/Header";
+import { FaAddressCard, FaAddressBook } from "react-icons/fa";
+import { EnderecoContext } from "../../Context/EnderecoContext";
+import { EnderecoPagination } from "../../Paginacao/EnderecoPagination";
 
 export const PaginaEndereco = () => {
-  const navigate = useNavigate()
-  const { dadosEnderecos,  listaEndereco , deleteEndereco} = useContext<any>(EnderecoContext);
-
+  const navigate = useNavigate();
+  const { dadosEnderecos, listaEndereco, deleteEndereco, listaEnderecos } =
+    useContext<any>(EnderecoContext);
 
   useEffect(() => {
-    listaEndereco()
-  }, [])
-
+    listaEndereco();
+  }, []);
 
   useEffect(() => {
     console.log(dadosEnderecos);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -33,7 +33,8 @@ export const PaginaEndereco = () => {
             <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
                 <div>
-                  <h3>Endereços usuários</h3>
+                <EnderecoPagination />
+                  {/* <h3>Endereços usuários</h3> */}
                 </div>
               </div>
               <div className="classOverflow"></div>
@@ -49,7 +50,7 @@ export const PaginaEndereco = () => {
                   <th>PAÍS</th>
                   <th>↓</th>
                 </tr>
-                 {dadosEnderecos?.map((endereco: IEndereco) => {
+                {listaEnderecos?.map((endereco: IEndereco) => {
                   return (
                     <tr>
                       <td>
@@ -78,33 +79,37 @@ export const PaginaEndereco = () => {
                       </td>
                       <td className="container-button">
                         <button className="buttonTabela">
-                          {' '}
+                          {" "}
                           <i>
                             <FiEdit
                               onClick={() => {
-                                navigate('/people/edit/adress', { state: endereco })
+                                navigate("/people/edit/adress", {
+                                  state: endereco,
+                                });
                               }}
                             />
                           </i>
                         </button>
 
                         <button className="buttonTabela">
-                          {' '}
+                          {" "}
                           <i>
                             <RiDeleteBin6Fill
-                              onClick={() => deleteEndereco(endereco.idEndereco)}
+                              onClick={() =>
+                                deleteEndereco(endereco.idEndereco)
+                              }
                             />
-                          </i>{' '}
+                          </i>{" "}
                         </button>
                       </td>
                     </tr>
-                  )
-                })} 
+                  );
+                })}
               </table>
             </div>
           </div>
         </ContainerHome>
       </ContainerGeral>
     </>
-  )
-}
+  );
+};

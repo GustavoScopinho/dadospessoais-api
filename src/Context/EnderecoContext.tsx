@@ -66,10 +66,29 @@ export const EnderecoProvider = ({ children }: IChildren) => {
       api.defaults.headers.common["Authorization"] = token;
       await api.put(`endereco/${endereco.idEndereco}`, endereco);
       toast.success("Endereço editado com sucesso!!", toastConfig);
-      navigate('/PaginaEndereco')
+      navigate("/PaginaEndereco");
     } catch (error) {
       toast.error("Houve algum error, tente novamente!", toastConfig);
       console.log(error);
+    } finally {
+      nProgress.done();
+    }
+  };
+  const [listaEnderecos, setListaEnderecos] = useState<IEndereco[]>([]);
+  const [totalDePaginas, setTotalDePaginas] = useState(0);
+
+  const enderecoPagination = async (page: string) => {
+    try {
+      nProgress.start();
+      api.defaults.headers.common["Authorization"] = token;
+      const { data } = await api.get(
+        `endereco?pagina=${parseInt(page) - 1}&tamanhoDasPaginas=20`
+      );
+      setTotalDePaginas(data.totalDePaginas);
+      setListaEnderecos(data.content);
+      console.log(totalDePaginas);
+    } catch (error) {
+      console.error(error);
     } finally {
       nProgress.done();
     }
@@ -83,6 +102,9 @@ export const EnderecoProvider = ({ children }: IChildren) => {
         listaEndereco,
         deleteEndereco,
         editaEndereco,
+        enderecoPagination,
+        totalDePaginas,
+        listaEnderecos,
       }}
     >
       {children}

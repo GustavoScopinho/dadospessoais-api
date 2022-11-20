@@ -59,5 +59,8 @@ export interface IEnderecoContext {
   dadosEnderecos: IEndereco | undefined | any
   deleteEndereco: (id: number) => Promise<void>
   editaEndereco: (endereco: IEndereco) => Promise<void>
+  enderecoPagination: (page: string) => Promise<void>
+  totalDePaginas: number;
+  listaEnderecos: IEndereco[];
 }
 
