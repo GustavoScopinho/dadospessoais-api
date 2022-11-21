@@ -3,7 +3,7 @@
 <img align="center" width="700px" src="https://user-images.githubusercontent.com/102439841/203068266-b69d432a-9cf8-4b38-8e1c-1f45d10db465.gif" >
 
 
-### Projeto consumindo api de usuários, contendo página de login, cadastro, logout e lista de usuários, podendo adicionar uma nova pessoa, editar ou até mesmo deletar.
+### Projeto consumindo api de usuários, contendo página de login, cadastro, logout e lista de usuários, podendo adicionar uma nova pessoa, adicionar um contato ou endereço a ela, editar ou até mesmo deletar.
 Consiste em uma API com GET,POST,PUT e DELETE.
 <hr>
 
