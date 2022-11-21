@@ -100,7 +100,8 @@ export const EnderecoProvider = ({ children }: IChildren) => {
         deleteEndereco,
         editaEndereco,
         totalDePaginas,
-        pegaCep
+        pegaCep,
+        dadosApi
       }}
     >
       {children}

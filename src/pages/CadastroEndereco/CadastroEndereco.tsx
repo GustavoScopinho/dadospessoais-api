@@ -14,11 +14,22 @@ export const CadastroEndereco = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors }
   } = useForm<IEndereco>({
     resolver: yupResolver(enderecoFormSchema)
   })
-  const { criaEnderecoPessoa } = useContext(EnderecoContext)
+  const { criaEnderecoPessoa, pegaCep, dadosApi} = useContext(EnderecoContext)
+
+  const cep = watch("cep");
+
+  useEffect(() => {
+    setValue("logradouro",  dadosApi?.logradouro);
+    setValue("cidade",  dadosApi?.localidade);
+    setValue("estado",  dadosApi?.uf)
+  }, [ dadosApi])
+
 
   return (
     <>
@@ -37,17 +48,12 @@ export const CadastroEndereco = () => {
                 <option value="COMERCIAL">Comercial</option>
               </select>
               <p>CEP:</p>
-              {/* <input
-                type="text"
-                id="cep"
-                placeholder="Cep"
-                {...register('cep')}
-              />{' '} */}
               <InputMask
                 mask="99999-999"
                 type="text"
                 id="cep"
                 {...register('cep')}
+                onBlur={() => pegaCep(cep)}
               />
               {errors.cep && (
                 <p className="erro-mensage">{errors.cep.message}</p>
