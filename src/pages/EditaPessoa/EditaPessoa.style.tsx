@@ -15,6 +15,7 @@ export const ContainerCadastro = styled.div`
   justify-content: center;
 
   h1 {
+    margin-bottom: 2%;
     color: #fff;
     text-align: center;
     padding-bottom: 20px;
@@ -56,7 +57,7 @@ export const ContainerCadastro = styled.div`
       min-height: 50vh;
       border-radius: 5px;
       background-color: #fff;
-      opacity: 80%;
+      opacity: 85%;
       padding: 20px;
 
       h1 {
@@ -69,9 +70,30 @@ export const ContainerCadastro = styled.div`
         flex-direction: column;
 
         input {
+          padding-left: 2%;
+          background: #ebebec;
           height: 40px;
           margin-bottom: 15px;
+          border-radius: 8px;
+          border: none;
         }
+        label {
+          font-weight: 400;
+        }
+      }
+    }
+    .button-cadastro {
+      margin-top: 5px;
+      background: #4b7bc4;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      cursor: pointer;
+      :hover {
+        scale: 1.01;
       }
     }
   }

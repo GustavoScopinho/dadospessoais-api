@@ -9,7 +9,6 @@ export const ContainerHeader = styled.div`
   border-bottom: 1px solid #fff;
   align-items: center;
   flex-direction: column;
-  /* border-right: 1px solid #1c203b; */
 
   .ContainerLogout {
     width: 100%;
@@ -39,6 +38,20 @@ export const ContainerMenu = styled.div`
 
   img {
     width: 100px;
+    transform: translatey(0px);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-30px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   .containerIcon {

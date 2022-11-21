@@ -14,6 +14,7 @@ export const CadastroContatos = () => {
   const { register, handleSubmit } = useForm<IContato>({
     resolver: yupResolver(ContatoSchema)
   })
+
   const { criarContatos } = useContext(ContatosContext)
 
   return (
@@ -22,25 +23,33 @@ export const CadastroContatos = () => {
         <div className="ContainerMenor">
           <h1>Cadastro de contato</h1>
           <div>
+            <label htmlFor=""></label>
             <form
               onSubmit={handleSubmit(data =>
                 criarContatos(data, state.idPessoa)
               )}
             >
+              <label htmlFor="">Residência:</label>
               <select id="tipoContato" {...register('tipoContato')}>
                 <option value="RESIDENCIAL">RESIDENCIAL</option>
                 <option value="COMERCIAL">COMERCIAL</option>
               </select>
 
-              <p>Telefone:</p>
+              <label htmlFor="">Telefone:</label>
               <InputMask
                 mask="(99)99999-9999"
                 type="text"
                 id="telefone"
                 {...register('telefone')}
+                placeholder="Digite seu telefone"
               />
-              <p>Descrição:</p>
-              <input type="text" id="descricao" {...register('descricao')} />
+              <label htmlFor="">Descrição:</label>
+              <input
+                type="text"
+                id="descricao"
+                {...register('descricao')}
+                placeholder="Digite a descrição, exemplo: Whatsapp"
+              />
               <input
                 className="button-cadastro"
                 type="submit"
