@@ -17,6 +17,7 @@ export const EnderecoProvider = ({ children }: IChildren) => {
   const [totalDePaginas, setTotalDePaginas] = useState(0)
 
   const [dadosEnderecos, setDadosEnderecos] = useState<IEndereco[]>([])
+  const [dadosApi, setDadosApi] = useState<Record<string, string>>({});
 
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
@@ -75,6 +76,19 @@ export const EnderecoProvider = ({ children }: IChildren) => {
       nProgress.done()
     }
   }
+  const pegaCep = async (cep: string) => {
+    try {
+      nProgress.start();
+      cep = cep.replace(/[^\d]/g, '');
+      const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      console.log(data);
+      setDadosApi(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      nProgress.done();
+    }
+  }
 
   return (
     <EnderecoContext.Provider
@@ -84,7 +98,8 @@ export const EnderecoProvider = ({ children }: IChildren) => {
         listaEndereco,
         deleteEndereco,
         editaEndereco,
-        totalDePaginas
+        totalDePaginas,
+        pegaCep
       }}
     >
       {children}

@@ -82,4 +82,6 @@ export interface IEnderecoContext {
   deleteEndereco: (id: number) => Promise<void>
   editaEndereco: (endereco: IEndereco) => Promise<void>
   totalDePaginas: number
+
+  pegaCep: (cep: string) => Promise<void>
 }
