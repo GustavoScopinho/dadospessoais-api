@@ -45,7 +45,7 @@ export const CadastroDePessoas = () => {
                 {...register('dataNascimento')}
               />
               {errors && <p>{errors.dataNascimento?.message}</p>}
-
+              <label htmlFor="">CPF:</label>
               <InputMask
                 mask="999.999.999-99"
                 type="text"
@@ -53,14 +53,10 @@ export const CadastroDePessoas = () => {
                 placeholder="Digite seu cpf"
                 {...register('cpf')}
               />
-              {/* <input
-                type="text"
-                id="cpf"
-                placeholder="Digite seu cpf"
-                {...register('cpf')}
-              /> */}
+
               {errors && <p>{errors.cpf?.message}</p>}
-              <p>Email:</p>
+              <label htmlFor="">Email:</label>
+
               <input type="text" id="email" {...register('email')} />
               {errors && <p>{errors.email?.message}</p>}
               <input

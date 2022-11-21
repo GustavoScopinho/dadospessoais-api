@@ -82,7 +82,7 @@ export const Home = () => {
                       <td>
                         <p>{pessoa.email}</p>
                       </td>
-                      <td className="container-button">
+                      <td className="containerButton">
                         <button className="buttonTabela">
                           {' '}
                           <i>

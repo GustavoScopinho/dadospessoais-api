@@ -33,6 +33,9 @@ export const ContainerHome = styled.div`
       text-align: center;
       color: rgb(28, 32, 59);
     }
+    .containerButton {
+      padding: 0px 50px;
+    }
 
     .buttonTabela {
       color: #5caff1;

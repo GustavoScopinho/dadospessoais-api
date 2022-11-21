@@ -23,6 +23,7 @@ export const EnderecoProvider = ({ children }: IChildren) => {
 
   const criaEnderecoPessoa = async (endereco: IEndereco, idPessoa: number) => {
     try {
+      endereco.cep = endereco.cep.replace(/[^\d]/g, '')
       api.defaults.headers.common['Authorization'] = token
       await api.post(`/endereco/${idPessoa}?idPessoa=${idPessoa}`, endereco)
       toast.success('Endereço cadastrado com sucesso!', toastConfig)
