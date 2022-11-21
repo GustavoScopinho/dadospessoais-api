@@ -14,6 +14,7 @@ export const CadastroContatos = () => {
   const { register, handleSubmit } = useForm<IContato>({
     resolver: yupResolver(ContatoSchema)
   })
+
   const { criarContatos } = useContext(ContatosContext)
 
   return (

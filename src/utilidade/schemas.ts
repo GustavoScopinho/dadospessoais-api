@@ -24,12 +24,8 @@ export const CadastroDePessoasSchema = yup.object().shape({
 
 export const ContatoSchema = yup.object().shape({
   tipoContato: yup.string().required('Campo obrigatório'),
-  telefone: yup.number().required('Digite o seu telefone'),
+  telefone: yup.string().required('Digite o seu telefone'),
   descricao: yup.string().required('Digite uma descrição, exemplo: Whatsapp')
-  // export const peopleFormSchema = yup.object().shape({
-  //   nome: yup.string().required()
-  //   dataNascimento: yup.string().required('')
-  //   cpf: yup.string().required()
 })
 
 export const enderecoFormSchema = yup.object().shape({

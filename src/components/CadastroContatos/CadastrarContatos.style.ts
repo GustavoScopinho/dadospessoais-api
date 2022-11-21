@@ -10,11 +10,12 @@ export const ContainerCadastro = styled.div`
     #64c0ff
   );
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
 
   h1 {
+    margin-bottom: 2%;
     color: #fff;
     text-align: center;
     padding-bottom: 20px;
@@ -53,13 +54,15 @@ export const ContainerCadastro = styled.div`
 
     div {
       width: 500px;
-      height: 500px;
+      min-height: 400px;
       border-radius: 5px;
-      background-color: #fff;
-      opacity: 85%;
+
+      opacity: 90%;
       padding: 20px;
       box-shadow: 1px 1px 10px 2px #4b7bc4;
-
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       h1 {
         text-align: center;
         padding-top: 10px;
@@ -70,9 +73,21 @@ export const ContainerCadastro = styled.div`
         flex-direction: column;
 
         input {
+          padding-left: 2%;
+          background: #c4c4cc;
           height: 40px;
           margin-bottom: 15px;
+          border-radius: 8px;
+          border: none;
         }
+      }
+      select {
+        padding-left: 2%;
+        background: #c4c4cc;
+        height: 40px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: none;
       }
     }
   }

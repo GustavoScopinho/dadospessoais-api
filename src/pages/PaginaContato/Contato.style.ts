@@ -21,7 +21,7 @@ export const ContainerHome = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #d6d6d6;
+    background-color: #e5e3e3;
     width: 100%;
 
     h2 {

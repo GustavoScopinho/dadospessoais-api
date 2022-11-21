@@ -9,7 +9,6 @@ export const ContainerHeader = styled.div`
   border-bottom: 1px solid #fff;
   align-items: center;
   flex-direction: column;
-  /* border-right: 1px solid #1c203b; */
 
   .ContainerLogout {
     width: 100%;
