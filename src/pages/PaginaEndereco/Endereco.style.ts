@@ -87,12 +87,30 @@ export const ContainerHome = styled.div`
       align-items: center;
 
       .containerBotaoCadastro {
-        height: 70px;
-        width: 100%;
-        align-items: center;
         display: flex;
-        justify-content: space-between;
-        border-radius: 5px;
+        justify-content: center;
+        padding: 15px;
+
+        .containerPag {
+          background-color: #5caff1;
+          border-radius: 5px;
+          width: 80px;
+          display: flex;
+          justify-content: center;
+          padding: 5px 0px;
+
+          a {
+            text-decoration: none;
+            margin-right: 8px;
+            font-weight: 700;
+            color: #fff;
+            font-size: 16px;
+
+            :hover {
+              color: rgb(28, 32, 59);
+            }
+          }
+        }
 
         div {
           margin: 0px 50px;

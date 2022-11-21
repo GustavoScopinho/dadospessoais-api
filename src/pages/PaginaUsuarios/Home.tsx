@@ -25,13 +25,17 @@ export const Home = () => {
       <ContainerGeral>
         <Header />
         <ContainerHome>
-          <PessoaPaginacao />
           <div className="ContainerMenor">
             <h2>Lista de pessoas</h2>
             <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
                 <div>
                   <h3>Usuários</h3>
+                </div>
+                <div className="containerPaginacao">
+                  <div className="containerPag">
+                    <PessoaPaginacao />
+                  </div>
                 </div>
                 <div>
                   <Link className="button-cadastro" to="/people/create">

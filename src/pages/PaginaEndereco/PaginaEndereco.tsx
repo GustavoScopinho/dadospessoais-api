@@ -28,7 +28,9 @@ export const PaginaEndereco = () => {
             <h2>Lista de Endereço</h2>
             <div className="ContainerTabela">
               <div className="containerBotaoCadastro">
-                <EnderecoPagination />
+                <div className="containerPag">
+                  <EnderecoPagination />
+                </div>
               </div>
               <div className="classOverflow"></div>
               <table>
