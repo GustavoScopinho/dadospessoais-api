@@ -57,7 +57,7 @@ export const ContainerCadastro = styled.div`
       min-height: 50vh;
       border-radius: 5px;
       background-color: #fff;
-      opacity: 80%;
+      opacity: 85%;
       padding: 20px;
 
       h1 {

@@ -24,29 +24,6 @@ export const ContainerCadastro = styled.div`
     padding-bottom: 10px;
   }
 
-  .button-cadastro {
-    background-image: linear-gradient(
-      to top,
-      #4b7bc4,
-      #4f8cd4,
-      #559de3,
-      #5caff1,
-      #64c0ff
-    );
-    border-radius: 5px;
-    text-decoration: none;
-    padding: 5px 10px;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    height: 50px;
-    border: none;
-    :hover {
-      scale: 1.01;
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-  }
-
   .ContainerMenor {
     display: flex;
     justify-content: center;
@@ -54,10 +31,10 @@ export const ContainerCadastro = styled.div`
 
     div {
       width: 500px;
-      min-height: 400px;
+      min-height: 350px;
       border-radius: 5px;
-
-      opacity: 90%;
+      background-color: #fff;
+      opacity: 85%;
       padding: 20px;
       box-shadow: 1px 1px 10px 2px #4b7bc4;
       display: flex;
@@ -74,20 +51,39 @@ export const ContainerCadastro = styled.div`
 
         input {
           padding-left: 2%;
-          background: #c4c4cc;
+          background: #d5e1ec;
           height: 40px;
           margin-bottom: 15px;
           border-radius: 8px;
           border: none;
         }
       }
+      label {
+        color: #000;
+      }
       select {
         padding-left: 2%;
-        background: #c4c4cc;
+        background: #d5e1ec;
         height: 40px;
         margin-bottom: 15px;
         border-radius: 8px;
         border: none;
+      }
+    }
+    .button-cadastro {
+      background: #4b7bc4;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 5px 10px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      height: 50px;
+      border: none;
+      transition: all ease 0.2s;
+      margin-top: 10px;
+      :hover {
+        scale: 1.01;
       }
     }
   }

@@ -82,7 +82,7 @@ export const ContainerCadastro = styled.div`
           border: none;
           :hover {
             scale: 1.01;
-            transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            transition: all ease 2s;
           }
         }
       }

@@ -1,11 +1,19 @@
 import styled from 'styled-components'
 
 export const ContainerCadastro = styled.div`
-  background: rgb(28, 32, 59);
+  background-image: linear-gradient(
+    to top,
+    #4b7bc4,
+    #4f8cd4,
+    #559de3,
+    #5caff1,
+    #64c0ff
+  );
   width: 100%;
   display: flex;
+  min-height: 100vh;
   justify-content: center;
-  padding-bottom: 9%;
+  padding-bottom: 2%;
 
   h1 {
     margin-top: 5%;
@@ -16,7 +24,7 @@ export const ContainerCadastro = styled.div`
   }
   p {
     font-weight: 500;
-    color: #fff;
+    color: #000;
     padding-bottom: 10px;
   }
   .erro-mensage {
@@ -32,8 +40,8 @@ export const ContainerCadastro = styled.div`
     div {
       width: 500px;
       border-radius: 10px;
-      background-color: #323238;
-
+      background-color: #fff;
+      opacity: 85%;
       padding: 20px;
       box-shadow: 1px 1px 10px 2px #4b7bc4;
 
@@ -44,7 +52,7 @@ export const ContainerCadastro = styled.div`
 
       select {
         padding-left: 2%;
-        background: #c4c4cc;
+        background: #ebebec;
         height: 40px;
         margin-bottom: 15px;
         border-radius: 8px;
@@ -57,14 +65,14 @@ export const ContainerCadastro = styled.div`
 
         input {
           padding-left: 2%;
-          background: #c4c4cc;
+          background: #ebebec;
           height: 40px;
           margin-bottom: 15px;
           border-radius: 8px;
           border: none;
         }
         button {
-          background: rgb(28, 32, 59);
+          background: #4b7bc4;
           margin-top: 5%;
           border-radius: 8px;
           text-decoration: none;
@@ -78,7 +86,7 @@ export const ContainerCadastro = styled.div`
           border: none;
           :hover {
             scale: 1.01;
-            transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            transition: all ease 0.2s;
           }
         }
       }

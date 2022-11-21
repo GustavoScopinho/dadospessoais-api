@@ -25,7 +25,7 @@ export const FormEditContatos = () => {
     <>
       <ContainerCadastro>
         <div className="ContainerMenor">
-          <h1>Cadastro de contato</h1>
+          <h1>Editar contato</h1>
           <div>
             <form onSubmit={handleSubmit(data => editarContatos(data))}>
               <select id="tipoContato" {...register('tipoContato')}>
