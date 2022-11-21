@@ -51,7 +51,7 @@ export const ContainerCadastro = styled.div`
 
         input {
           padding-left: 2%;
-          background: #d5e1ec;
+          background: #ebebec;
           height: 40px;
           margin-bottom: 15px;
           border-radius: 8px;
@@ -63,7 +63,7 @@ export const ContainerCadastro = styled.div`
       }
       select {
         padding-left: 2%;
-        background: #d5e1ec;
+        background: #ebebec;
         height: 40px;
         margin-bottom: 15px;
         border-radius: 8px;
