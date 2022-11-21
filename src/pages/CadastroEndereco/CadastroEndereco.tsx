@@ -10,15 +10,24 @@ import { enderecoFormSchema } from '../../utilidade/schemas'
 
 export const CadastroEndereco = () => {
   const { state } = useLocation()
+  const { criaEnderecoPessoa, pegaCep, dadosApi  } = useContext(EnderecoContext)
 
   const {
     register,
     handleSubmit,
+    watch, setValue,
     formState: { errors }
   } = useForm<IEndereco>({
     resolver: yupResolver(enderecoFormSchema)
   })
-  const { criaEnderecoPessoa } = useContext(EnderecoContext)
+  const cep = watch("cep");
+
+  useEffect(() => {
+    setValue("logradouro",  dadosApi?.logradouro);
+    setValue("cidade",  dadosApi?.localidade);
+    setValue("estado",  dadosApi?.uf)
+  }, [dadosApi])
+
 
   return (
     <>
@@ -48,6 +57,7 @@ export const CadastroEndereco = () => {
                 type="text"
                 id="cep"
                 {...register('cep')}
+                onBlur={() => pegaCep(cep)}
               />
               {errors.cep && (
                 <p className="erro-mensage">{errors.cep.message}</p>

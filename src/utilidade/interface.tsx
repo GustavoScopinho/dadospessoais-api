@@ -84,4 +84,5 @@ export interface IEnderecoContext {
   totalDePaginas: number
 
   pegaCep: (cep: string) => Promise<void>
+  dadosApi: Record<string, string>
 }
