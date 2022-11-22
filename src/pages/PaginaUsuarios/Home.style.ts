@@ -34,7 +34,7 @@ export const ContainerHome = styled.div`
       color: rgb(28, 32, 59);
     }
     .containerButton {
-      padding: 5px 30px;
+      padding: 5px 100px;
     }
 
     .buttonTabela {
