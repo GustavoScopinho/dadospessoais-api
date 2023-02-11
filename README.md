@@ -15,12 +15,7 @@ Consiste em uma API com GET,POST,PUT e DELETE.
 ### O projeto possui algumas dependências, aqui embaixo vai os comandos para você instalar:
 
 1 - npm i <br>
-2 - npm react-router-dom <br>
-3 - npm axios <br>
-4 - npm i --save-dev @types/nprogress <br>
-5 - npm i react-icons <br>
-6 - npm install --save react-toastify <br>
-7 - npm i react-nprogress
+
 
 ### Para iniciar o projeto:
 Somente digitar no terminal: npm start
